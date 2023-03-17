@@ -1,0 +1,40 @@
+{% extends 'init.html' %}
+
+
+{% block title %} Samvad Blog {% endblock %}
+
+{% block body %}
+<style>
+  div{
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  body{
+    background: url("https://c.wallhere.com/photos/a2/d8/digital_art_abstract_minimalism_black_3D_lines_simple-66610.jpg!d")
+  }
+
+  .bg-dark{
+    background: rgb(0,0,0);
+background: linear-gradient(186deg, rgba(0,0,0,1) 0%, rgba(55,9,17,1) 99%);
+  }
+</style>
+<br>
+<br>
+<font color="white">
+{% for i in arts %}
+  <div class="row my-5">
+    <div class="col-md-8">
+      <h2>{{i.heading}}</h2>
+      <br>
+      <h5> {{i.name}} </h5
+      <p>{{i.article}}</p>
+      <a href="/{{i.slug}}" class="btn btn-warning">Read More</a>
+    </div>
+    <div class="col-md-4">
+      <img src="https://via.placeholder.com/300x300" class="img-fluid rounded" alt="...">
+    </div>
+  </div>
+{% endfor %}
+         
+{% endblock %}

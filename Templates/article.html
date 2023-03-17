@@ -1,0 +1,61 @@
+{% extends 'init.html' %}
+
+
+{% block title %} Backend {% endblock %}
+
+{% block body %}
+<style>
+    div{
+        padding-left: 5%;
+        padding-right:5%;
+    }
+
+    body{
+        background: url('https://wallpapercave.com/wp/wp3592949.jpg')
+    }
+
+    .bg-dark{
+        background: rgb(0,0,0);
+        background: linear-gradient(87deg, rgba(0,0,0,1) 0%, rgba(136,17,37,1) 99%);
+    }
+    </style>
+<font color="white">
+<br>
+<div>
+<h3>
+U_Id of user is : {{ query7 }}
+<br>
+Name of the person who submitted article is : {{ query0 }}
+<br>
+Branch : {{query3}}
+<br>
+Year Of Enrollment : {{query6}}
+<hr color="red">
+<br>
+Heading of article is : {{ query4 }}
+<br>
+<br>
+The article is : {{ query2 }}
+</h3>
+<br>
+<br>
+<hr color="Red">
+<h2> Now Please Review The Particulars Of The Article: </h2>
+<br>
+<br>
+<form action="/Verification/" method="post">{% csrf_token %}
+    <input type="text" name="U_id" placeholder="U_Id Of User"> 
+    <BR>
+    <input type="checkbox" name="Mnnitian"> User Verified As Someone From MNNIT
+    <br>
+    <input type="checkbox" name="Headline"> Heading Verified
+    <br>
+    <input type="checkbox" name="Article"> Article Text Verified
+    <br>
+    <button type="Submit" class="btn btn-warning"> Submit Report </button>
+    <br>
+    <br>
+
+</form>
+</div>
+{% endblock %}

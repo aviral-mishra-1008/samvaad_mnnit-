@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+      <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel = "icon" href ="https://bnz06pap001files.storage.live.com/y4mQFg031CliFFdRyXGxk72wTVFUFxVIhqXY0eQlHc0a95164qfpDWieS32fnfBbUDncSe-K8oEHstCr57cimJGGJ2ajzjPdFZ1_NKG6Sl8yM7OVTYw_brNWUUzHvuDgBXRSNsPcqjUfLvQXhiACD1PthqKf8vZkUjLl3FFvQkxpaeQI2K9WxLx8-lGJZlUAZwT?width=565&height=562&cropmode=none" 
+        type = "image/x-icon"> 
+
+    <title>{% block title %} {% endblock %} </title>
+ </head>
+ <body>
+
+        <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark justify-content-center">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">Samvaad</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/About/">About Us</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="/Contact/">Contact Us</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="/article/">Articles</a>
+              </li>
+
+              
+              <li class="nav-item">
+                <a class="nav-link" href="/Submission/">Submissions</a>
+              </li>
+
+              <form class="d-flex" role="search" method="get" action="Search/">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" class="pull-right">
+        <button class="btn btn-outline-warning" type="submit">Search</button>
+      </form>
+
+            </ul>
+          
+    <!-- <form method = '' action = ''class="form-inline my-2 my-lg-0"> {% csrf_token %}
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name='search' id='search'>
+      <button class="btn btn-warning" type="submit">Search</button>
+    </form> -->
+          </div>
+        </div>
+      </nav>
+
+    {% block body %}     {% endblock %} 
+  
+
+     <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  {% block js %} 
+  
+  {% endblock %}
+  </body>
+</html>

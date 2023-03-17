@@ -1,0 +1,61 @@
+{% extends 'init.html' %}
+
+
+{% block title %} Samvad Blog {% endblock %}
+
+{% block body %}
+<style>
+    body {
+        background-color: #000;
+        background-image: url("http://www.mnnit.ac.in/institutelogo/MNNIT%20(logo)png.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 17%;
+        color: #fff;
+       
+    }
+
+    .bg-dark{
+        background: rgb(0,0,0);
+background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 99%);
+    }
+
+    div{
+        text-align: center; 
+        padding-right:3%;       
+    }
+
+    h4{
+        text-align: center;
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+
+    h5{
+        text-align: center;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+</style>
+<br>
+<div>
+<H2> Motilal Nehru National Institute Of Technology </H2>
+</div>
+<h4> Also known as NIT - Allahabad, is an institute of National Importance located in the holy city of Prayagraj, Uttar-Pradesh. This website named Samvaad was developed as a project by the first year students as the representation of the institute. It provides every individual associated with MNNIT an opportunity to express themselves, their experiences, their stories, their reports through articles and blogs. The objective of the website is to serve as a mirror bearing the voice and image of the insitute for both the people within and the world outside.
+<div>
+    <br>
+{% comment %} <img src = "http://www.mnnit.ac.in/institutelogo/MNNIT%20(logo)png.png" height="300px" > {% endcomment %}
+<br>
+<br>
+</div>
+<h5> You can view the articles by searching for a specific one by entering it in the search functionality given in navigation bar or you can go through our article section and find beautiful articles written by the people at MNNIT, in the article section there will be inital articles created by team Glasnost which provide an insight into the college and the culture here while they will be followed by student written articles.
+<BR>
+    <br>
+A member of MNNIT Family??
+<br>
+<br>
+Why Not Express Yourself - By Submitting An Article! To Do So:
+<a href="/Submission/" class="btn btn-warning"> Click Here To Submit An Article </a>
+
+
+{% endblock %}
