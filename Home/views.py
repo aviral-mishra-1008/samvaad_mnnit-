@@ -113,8 +113,26 @@ def article(request):
         field.delete()
         return render(request, 'index.html')  
     return render(request, "article.html")
-
-
 def search(request):
-    query = 
+    query=request.GET['query']
+    if query=="":
+        return render(request,"search_empty.html")
+    if len(query)>78:
+        allPosts=Post.objects.none()
+    else:
+        allPostsTitle= Post.objects.filter(heading__icontains=query)
+        allPostsAuthor= Post.objects.filter(name__icontains=query)
+        allPostsContent =Post.objects.filter(article__icontains=query)
+        allPosts=  allPostsTitle.union(allPostsContent, allPostsAuthor)
+    # if allPosts.count()==0:
+    #      return HttpResponse("try some search")
+       
+    params={'allPosts': allPosts, 'query': query}
+    return render(request, 'search.html', params)
+
+
+
+
+
+
 

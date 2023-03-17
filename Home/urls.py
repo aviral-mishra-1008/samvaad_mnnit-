@@ -10,7 +10,7 @@ urlpatterns = [
     path('Success/',views.success,name="success"),
     path('Backend/',views.backend,name="backend"),
     path('Verification/',views.article,name="Article"),
-    path('Search/', views.search, name="search")
+    path('search/',views.search,name="search")
 ] 
 if settings.DEBUG:
     urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

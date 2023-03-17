@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel = "icon" href ="https://bnz06pap001files.storage.live.com/y4mQFg031CliFFdRyXGxk72wTVFUFxVIhqXY0eQlHc0a95164qfpDWieS32fnfBbUDncSe-K8oEHstCr57cimJGGJ2ajzjPdFZ1_NKG6Sl8yM7OVTYw_brNWUUzHvuDgBXRSNsPcqjUfLvQXhiACD1PthqKf8vZkUjLl3FFvQkxpaeQI2K9WxLx8-lGJZlUAZwT?width=565&height=562&cropmode=none" 
         type = "image/x-icon"> 
+    
 
     <title>{% block title %} {% endblock %} </title>
  </head>
@@ -42,11 +43,11 @@
               <li class="nav-item">
                 <a class="nav-link" href="/Submission/">Submissions</a>
               </li>
-
-              <form class="d-flex" role="search" method="get" action="Search/">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" class="pull-right">
-        <button class="btn btn-outline-warning" type="submit">Search</button>
-      </form>
+              <form  method="get" action="/search" class="form-inline my-2 my-lg-0" role="search">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="query" id="query">
+                <button class="btn btn-outline-warning" type="submit">Search</button>
+              </form>
+              
 
             </ul>
           
@@ -58,7 +59,7 @@
         </div>
       </nav>
 
-    {% block body %}     {% endblock %} 
+    {% block body %} {% endblock %} 
   
 
      <!-- Optional JavaScript -->
