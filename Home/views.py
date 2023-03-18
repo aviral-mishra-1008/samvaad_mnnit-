@@ -8,6 +8,8 @@ import smtplib
 from Vyas.models import Post
 import random
 
+from django.contrib import  messages
+
 def index(request):
     return render(request, "index.html")
 
@@ -15,6 +17,7 @@ def about(request):
     return render(request, "about.html")
 
 def contact_us(request):
+    messages.success(request,"hello")
     return render(request, "Contact.html")
 
 def sub(request):
@@ -117,6 +120,7 @@ def search(request):
     query=request.GET['query']
     if query=="":
         return render(request,"search_empty.html")
+        
     if len(query)>78:
         allPosts=Post.objects.none()
     else:
@@ -130,7 +134,20 @@ def search(request):
     params={'allPosts': allPosts, 'query': query}
     return render(request, 'search.html', params)
 
+def login(request):
+    username=request.GET['Username']
+    password=request.GET['psw']
+    users=['shresth','ayushman','aviral','utkarsh']
+    user_pin={'shresth':'123','ayushman':'123','aviral':'123','utkarsh':'123'}
+    if username in users:
+        if user_pin[username]==password:
+            return render (request,'backend.html')
+        else :
+            return render (request,'erono1.html')
 
+    else:
+        HttpResponse("user not found")
+    return render(request, "adminlogin.html")
 
 
 

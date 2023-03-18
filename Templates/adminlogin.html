@@ -1,0 +1,83 @@
+{%extends 'init.html'%}
+{%block title%} Login Backend {%endblock%}
+{%block body%} 
+<style>
+body, html {
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-img {
+  /* The image used */
+  background-image: url("8.jpg");
+
+  min-height: 380px;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* Add styles to the form container */
+.container {
+  position: absolute;
+  right: 0;
+  margin: 20px;
+  max-width: 300px;
+  padding: 16px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+
+body {
+      background-image: url('https://wallpaperaccess.com/full/2116.jpg');
+    }
+
+
+</style>
+
+<center>
+<div class="about-section">
+  <br>
+  <br>
+  <font color="white">
+  <h2>Please Enter Login Details If You Are From Backend Team</h2>
+<div class="bg-img">
+
+  <form action="/Backend" method="get" class="container">{% csrf_token %}
+    <h1>Login</h1>
+
+    <label for="username"><b>Enter Username</b></label>
+    <input type="text" placeholder="Enter Username" name="Username" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <button type="submit" class="btn btn-outline-warning">Login</button>
+  </form>
+</div>
+</center>
+{%endblock%}
