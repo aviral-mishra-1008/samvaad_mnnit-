@@ -11,7 +11,8 @@ urlpatterns = [
     path('Backend/',views.login,name="backend"),
     path('Verification/',views.article,name="Article"),
     path('search/',views.search,name="search"),
-    path('login/',views.login,name="login")
+    path('login/',views.login,name="login"),
+    path('Backend_Uid/',views.backend, name="u_id")
 ] 
 if settings.DEBUG:
     urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

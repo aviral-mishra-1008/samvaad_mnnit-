@@ -1,11 +1,66 @@
 {% extends 'init.html' %}
 
+    <title>{% block title %} Contact Us! {% endblock %} </title>
+    {% block body %} 
+    <style>
+        .navbar-dark{
+           background: rgb(51,214,112);
+background: linear-gradient(197deg, rgba(51,214,112,0.7586221988795518) 0%, rgba(122,133,190,0.4448967086834734) 29%, rgba(0,0,0,1) 100%);
 
-{% block title %} Samvad Blog {% endblock %}
-{% block articleactive %} active {% endblock articleactive %}
+        }
+</style>
+    <style>
+body {
+  background:url('https://realignsinc.com/wp-content/uploads/2018/02/prequate-worldmap.gif');
+}
+</style>
+</style>
 
-{% block body %}
 
-Contact Us
+<div class="card text-white" align = "center"  style="max-width: 76rem;">
+  <div class="card-header"> <h1> <b> Contact Us </h1> </b> </div>
+  <div class="card-body">
+    <h5 class="card-title">Feel Free To Contact Us At Samvaad</h5>
+    <p class="card-text">For feedback you can mail us at : glasnost.mnnit@gmail.com  
+    For any article upload related query you can mail us at: articles.samvaad@gmail.com <br>
+    
+    Feel Free to reach our backend team: 0522 ******
+    <h1>Writers? Reach Out To Us Using The Form Below </h1>
+<div class="container">
+     <form action="/Contact/" method="post">
+      {% csrf_token %}
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" name="name" placeholder="Enter Your Name" style="background:background: rgb(255,255,255);
+background: radial-gradient(circle, rgba(255,255,255,0.7502188375350141) 0%, rgba(255,255,255,0.75) 100%)">
+  </div>
+          
 
-{% endblock %}
+   <div class="form-group">
+    <label for="name">Your email</label>
+    <input type="email" class="form-control" id="email" name="email" placeholder="Your Email Id" style="background:background: rgb(255,255,255);
+background: radial-gradient(circle, rgba(255,255,255,0.7502188375350141) 0%, rgba(255,255,255,0.75) 100%)">
+  </div>
+          <div class="form-group">
+    <label for="name">Phone</label>
+    <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter Your Phone Number" style="background:background: rgb(255,255,255);
+background: radial-gradient(circle, rgba(255,255,255,0.7502188375350141) 0%, rgba(255,255,255,0.75) 100%)"  >
+  </div>
+          <div class="form-group">
+   <div class="form-group">
+    <label for="desc" >Query</label>
+    <textarea class="form-control" id="query" name="query" rows="3" style="background:background: rgb(255,255,255);
+background: radial-gradient(circle, rgba(255,255,255,0.7502188375350141) 0%, rgba(255,255,255,0.75) 100%)"></textarea>
+   </div>
+  <button type="submit" class="btn btn-warning">Submit</button>
+  </form>
+    </p>
+  </div>
+</div>
+<style>
+  .card {
+    background: rgb(0,0,0);
+background: linear-gradient(90deg, rgba(0,0,0,0.4701067927170869) 0%, rgba(8,8,8,0.47290791316526615) 35%, rgba(0,0,0,0.47851015406162467) 100%);
+}
+</style>
+    {% endblock %} 

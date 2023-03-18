@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Submissions
+from .models import Contact
 import smtplib
 from Vyas.models import Post
 import random
@@ -17,7 +18,15 @@ def about(request):
     return render(request, "about.html")
 
 def contact_us(request):
-    messages.success(request,"hello")
+    if request.method=='POST':
+        name= request.POST['name']
+        email= request.POST['email']
+        phone = request.POST['phone']
+        query = request.POST['query']
+        
+        contact=Contact(name=name,email=email,phone=phone,query=query)
+        contact.save()
+   
     return render(request, "Contact.html")
 
 def sub(request):
@@ -135,19 +144,21 @@ def search(request):
     return render(request, 'search.html', params)
 
 def login(request):
-    username=request.GET['Username']
-    password=request.GET['psw']
-    users=['shresth','ayushman','aviral','utkarsh']
-    user_pin={'shresth':'123','ayushman':'123','aviral':'123','utkarsh':'123'}
-    if username in users:
-        if user_pin[username]==password:
-            return render (request,'backend.html')
-        else :
-            return render (request,'erono1.html')
+     if request.method=='POST':
+        
+        username=request.POST['Username']
+        password=request.POST['psw']
+        users=['shresth','ayushman','aviral','utkarsh']
+        user_pin={'shresth':'123','ayushman':'123','aviral':'123','utkarsh':'123'}
+        if username in users:
+            if user_pin[username]==password:
+                return render (request,'backend.html')
+            else :
+                return render (request,'erono1.html')
 
-    else:
-        HttpResponse("user not found")
-    return render(request, "adminlogin.html")
+        else:
+            HttpResponse("user not found")
+     return render(request, 'adminlogin.html')
 
 
 

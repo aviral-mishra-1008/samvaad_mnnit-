@@ -1,6 +1,7 @@
 {%extends 'init.html'%}
-{%block title%} Login Backend {%endblock%}
-{%block body%} 
+{%block title%} Backend Site {%endblock%}
+{% block body %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body, html {
   height: 100%;
@@ -13,7 +14,7 @@ body, html {
 
 .bg-img {
   /* The image used */
-  background-image: url("8.jpg");
+  background-image: url("https://dsm04pap002files.storage.live.com/y4mBrxFzHucCv54NaNxt9eu82Z8TJdsKJiXghrhfUQVZiGBpbve2jpy8aLhjb5yzb-7zZU5kiZjQADKIs4SjbDJV3vClQsauOtd0wo5ivjGNJjPee038i38ilqF9oEk43nan5jo4U3sBhLchLK76L2pxBBTS6hpCF-aEeI-jY9ttOxHSKIc5He0FGRJdShyE3J6?width=3837&height=1607&cropmode=none");
 
   min-height: 380px;
 
@@ -48,36 +49,57 @@ input[type=text]:focus, input[type=password]:focus {
   outline: none;
 }
 
+/* Set a style for the submit button */
+
+
 .btn:hover {
   opacity: 1;
 }
 
 body {
-      background-image: url('https://wallpaperaccess.com/full/2116.jpg');
+      background-image: url('https://static.vecteezy.com/system/resources/thumbnails/002/524/361/original/black-night-sky-with-twinkling-stars-free-video.jpg');
+	  
     }
+h2 {
+  color: white;
+}
+p {
+  color: white;
+}
 
+.bg-dark{
+  background: rgb(0,0,0);
+background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 100%);
+}
+
+	
+	
 
 </style>
-
-<center>
+</head>
+<br>
 <div class="about-section">
-  <br>
-  <br>
-  <font color="white">
-  <h2>Please Enter Login Details If You Are From Backend Team</h2>
+  <h2>Admin Authentication</h2>
+  <p>Guidelines for admins:<br>
+  1- Enter The Assigned Username<br>
+  2- Enter The Password Provided By Backend<br>
+  3- Click On Submit Button<br>
+  </p>
+  
+</div>
 <div class="bg-img">
-
-  <form action="/Backend" method="get" class="container">{% csrf_token %}
+  <form action="/Backend/" method="post" class="container"> {% csrf_token %}
     <h1>Login</h1>
 
-    <label for="username"><b>Enter Username</b></label>
-    <input type="text" placeholder="Enter Username" name="Username" required>
+    <label for="username"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="Username" id="Username" required>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
 
     <button type="submit" class="btn btn-outline-warning">Login</button>
   </form>
 </div>
-</center>
+
+
 {%endblock%}
