@@ -31,12 +31,12 @@ background: linear-gradient(186deg, rgba(0,0,0,1) 0%, rgba(55,9,17,1) 99%);
       <strong class="d-inline-block mb-2 text-primary">Article  by {{i.name}}</strong>
       <br>
       <div align='left' class="mb-1 text-muted"> Estimated Time Of Reading: {{i.estimated_time}}</div>
-      <p>{{i.article}}</p>
+      <p>{{i.art}}</p>
       <a href="/{{i.slug}}" class="btn btn-warning">Read More</a>
     </div>
     <div class="col-md-4">
 
-      <img src="/media/{{i.image}}" class="img-fluid rounded" alt="...">
+      {% comment %} <img src="/media/{{i.image}}" class="img-fluid rounded" alt="..."> {% endcomment %}
     </div>
   </div>
 {% endfor %}
