@@ -2,6 +2,8 @@ from django.urls import path
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
+from .views import backend
+
 urlpatterns = [
     path("", views.index, name = "Home"),
     path("About/", views.about, name="About"),
@@ -12,9 +14,6 @@ urlpatterns = [
     path('Verification/',views.article,name="Article"),
     path('search/',views.search,name="search"),
     path('login/',views.login,name="login"),
-    path('Backend_Uid/',views.backend, name="u_id")
-] 
-if settings.DEBUG:
-    urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
+    path('backend_uid/', views.backend, name='backend')
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

@@ -7,7 +7,6 @@ from math import ceil
 def first(request):
     arts = Post.objects.all()
     n = len(arts)
-    # nArts= n//4 + ceil((n/4) - (n//4))
     params={'no_of_arts':n, 'range':range(1,n), 'arts': arts}
     return render(request, "firstpost.html", params)
 

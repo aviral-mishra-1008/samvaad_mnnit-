@@ -35,6 +35,12 @@ Year Of Enrollment : {{query6}}
 Heading of article is : {{ query4 }}
 <br>
 <br>
+The Image Submitted is:
+<br>
+<br>
+<img src = {{query8}} width='200'>
+<br>
+<br>
 The article is : {{ query2 }}
 </h3>
 <br>
@@ -46,11 +52,13 @@ The article is : {{ query2 }}
 <form action="/Verification/" method="post">{% csrf_token %}
     <input type="text" name="U_id" placeholder="U_Id Of User"> 
     <BR>
-    <input type="checkbox" name="Mnnitian"> User Verified As Someone From MNNIT
+    <input type="checkbox" name="Mnnitian"> User Verified As Someone From MNNIT?
     <br>
-    <input type="checkbox" name="Headline"> Heading Verified
+    <input type="checkbox" name="Headline"> Heading Is Not Controversial?
     <br>
-    <input type="checkbox" name="Article"> Article Text Verified
+    <input type="checkbox" name="Article"> Article Text Is Not Controversial?
+    <br>
+    <input type="checkbox" name="ImageVer"> Image Is Appropriate?
     <br>
     <button type="Submit" class="btn btn-warning"> Submit Report </button>
     <br>
