@@ -9,6 +9,7 @@ from Vyas.models import Post
 import random
 import os
 from django.contrib import  messages
+from transformers import pipeline
 
 # Create your views here.
 
@@ -88,8 +89,14 @@ def backend(request):
             year = iD.year
             image = iD.image
             image = "\media\\"+str(image)
-            l.extend([name,email,article,branch,heading,time,year,u_id,image])
-            for i in range(9):
+            sentiment_pipeline = pipeline("sentiment-analysis")
+            result = sentiment_pipeline(article)
+            predicted_sentiment = result[0]['label']
+            score = round(result[0]['score'],5)
+                
+
+            l.extend([name,email,article,branch,heading,time,year,u_id,image,predicted_sentiment,score])
+            for i in range(11):
                 t = str(i)
                 query = "query"+t
                 params[query]=l[i]
@@ -145,6 +152,8 @@ def search(request):
         allPostsAuthor= Post.objects.filter(name__icontains=query)
         allPostsContent =Post.objects.filter(article__icontains=query)
         allPosts=  allPostsTitle.union(allPostsContent, allPostsAuthor)
+        for post in allPosts:
+            post.image = '/media/'+str(post.image)
     # if allPosts.count()==0:
     #      return HttpResponse("try some search")
        
