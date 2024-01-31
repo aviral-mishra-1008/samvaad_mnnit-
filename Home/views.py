@@ -135,7 +135,7 @@ def article(request):
         return render(request,'index.html')
 
     else:
-        field = Submissions.objects.get(unique_identifier=u_id)
+        field = Submissions.objects.get(unique_id=u_id)
         field.delete()
         return render(request, 'index.html')  
     # return render(request, "article.html")
