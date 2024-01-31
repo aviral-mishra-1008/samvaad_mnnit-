@@ -128,7 +128,7 @@ def article(request):
         year = field.year
         push_data = Post(name=name, email_id = email, heading=head, estimated_time=time, article=article, image=image, branch=branch, year=year, unique_identifier=u_id,slug=slug)
         push_data.save()
-        file = open("C:\\Users\\DELL\\Desktop\\Samvaad The Endgame\\samvaad_mnnit-\\Templates\\"+str(u_id)+"s"+".html","w",encoding="utf-8") #USERS NEED TO COPY THE ABSOLUTE PATH OF TEMPLATE FOLDER AND PASTE HERE INCASE OF USE SINCE WE ARE FINDING IT A BIT HARD TO USE RELATIVE PATHS WITH OPEN FUNCTION
+        file = open("Templates\\"+str(u_id)+"s"+".html","w",encoding="utf-8") #USERS NEED TO COPY THE ABSOLUTE PATH OF TEMPLATE FOLDER AND PASTE HERE INCASE OF USE SINCE WE ARE FINDING IT A BIT HARD TO USE RELATIVE PATHS WITH OPEN FUNCTION
         l = ['{% extends "init.html" %}\n',"<br>\n",'{% block title%}\n',"Article - Samvaad\n",'{% endblock %}\n','{% block body%}\n',"<style>\n","body{\n","background: url('https://images2.alphacoders.com/600/600022.png')\n}",".bg-dark{\n","background: rgb(0,0,0);\n","background: linear-gradient(186deg, rgba(0,0,0,1) 0%, rgba(55,9,17,1) 99%);\n","}\n","div{\n","padding-right: 10%;\n","padding-left:10%;\n}","</style>\n","<div>\n", "<font color='white'>\n","<br>\n","<center>\n","<h2>\n",head,"\n",'</h2>\n',"<img src='\media\\"+str(image)+"' width='100' class='imageD'>\n","</center>\n","<hr color='black'>\n","<br>\n",article,"\n","</div>\n","{%endblock%}"]
         file.writelines(l)
         file.close()
