@@ -25,7 +25,7 @@ def index(request):
     return render(request, "indexNew.html",params)
 
 def about(request):
-    return render(request, "about.html")
+    return render(request, "AboutNew.html")
 
 def contact_us(request):
     if request.method=='POST':
@@ -37,7 +37,7 @@ def contact_us(request):
         contact=Contact(name=name,email=email,phone=phone,query=query)
         contact.save()
    
-    return render(request, "Contact.html")
+    return render(request, "ContactNew.html")
 
 def sub(request):
     if request.method=="POST":
