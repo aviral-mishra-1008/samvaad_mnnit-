@@ -18,13 +18,13 @@
     <title>{% block title %} {% endblock %}</title>
   </head>
   <body>
-    <section class="wrapper w-screen mt-0 bg-gray-200">
+    <section class="wrapper w-screen mt-0 bg-orange-50 hover:bg-orange-100">
       
       <div class="flex flex-col w-[100%] h-[100%] mt-0">
         <nav
-          class="flex justify-between px-20 py-10 items-center bg-gray-600 h-[25px] w-[100%]"
+          class="flex justify-between px-20 py-10 items-center bg-gradient-to-r from-red-500 to-red-700  h-[25px] w-[100%]"
         >
-          <h1 class="text-2xl text-gray-400 font-bold">Samvaad</h1>
+          <h1 class="text-2xl text-gray-200 font-bold">SAMVAAD</h1>
           <div class="flex items-center">
             <div class="flex items-center">
               <svg
@@ -41,19 +41,23 @@
                   d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                 />
               </svg>
-              <input
-                class="ml-2 outline-none bg-transparent font-"
-                type="text"
-                name="search"
-                id="search"
-                placeholder="Search Articles..."
-              />
+              <form class="d-flex" method="POST" action="/search/">
+                {% csrf_token %}
+                <input class="form-control me-2 bg-transparent" type="search" placeholder="Search Articles..." name="search_query" required aria-label="Search">
+                <button class="btn btn-outline-success text-white ms-2" type="submit" style="padding: 20px;">Search</button>
+            </form>
+            
             </div>
             <ul class="flex items-center space-x-6">
-              <li class="font-semibold text-gray-200">Home</li>
-              <li class="font-semibold text-gray-200">About</li>
-              <li class="font-semibold text-gray-200">Contact</li>
-              <li class="font-semibold text-gray-200">Articles</li>
+              <li class="font-semibold text-gray-200"> <a href='/'>Home</a></li>
+              <li class="font-semibold text-gray-200"><a href='/About'>About</a></li>
+              <li class="font-semibold text-gray-200"><a href='/Contact'>Contact</a></li>
+              <li class="font-semibold text-gray-200"><a href='/article'>Articles</a></li>
+              <li class="font-semibold text-gray-200"><a href='/Submission'>Submission</a></li>
+
+
+               {% comment %}   ADDITIONAL OPTIONS {% endcomment %} 
+              {% comment %}
               <li>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -104,12 +108,14 @@
                     stroke-width="2"
                     d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
                   />
-                </svg>
+                </svg> {% endcomment %}
               </li>
             </ul>
           </div>
         </nav>
         {% block body %} {% endblock %}  
+
+
         {% comment %} Main content inside body block {% endcomment %}
 {% comment %} footer {% endcomment %}
         <div
@@ -117,7 +123,8 @@
         >
           <div class="md:w-2/3 w-full px-4 text-white flex flex-col">
             <div class="w-full text-7xl font-bold">
-              <h1 class="w-full md:w-2/3">How can we help you. get in touch</h1>
+              <h1 class="w-full md:w-2/3">How can we help you? </h1>
+              <h1> Get in touch!! </h1>
             </div>
             <div class="flex mt-8 flex-col md:flex-row md:justify-between">
               <p class="w-full md:w-2/3 text-gray-400">
@@ -126,7 +133,8 @@
               </p>
               <div class="w-44 pt-6 md:pt-0">
                 <a
-                  class="bg-red-500 justify-center text-center rounded-lg shadow px-10 py-3 flex items-center"
+                  class="bg-red-500 justify-center text-center rounded-lg shadow px-10 py-3 flex items-center",
+                  href = '/Contact'
                   >Contact US</a
                 >
               </div>
@@ -137,19 +145,23 @@
                   Samvaad
                 </div>
                 <a
-                  class="hidden md:block cursor-pointer text-gray-600 hover:text-white uppercase"
+                  class="hidden md:block cursor-pointer text-gray-600 hover:text-white uppercase",
+                  href = '/About'
                   >About</a
                 >
                 <a
-                  class="hidden md:block cursor-pointer text-gray-600 hover:text-white uppercase"
-                  >Services</a
+                  class="hidden md:block cursor-pointer text-gray-600 hover:text-white uppercase",
+                  href ='/Submission'
+                  >Article Submission</a
                 >
                 <a
-                  class="hidden md:block cursor-pointer text-gray-600 hover:text-white uppercase"
-                  >Why us</a
+                  class="hidden md:block cursor-pointer text-gray-600 hover:text-white uppercase",
+                  href = '/article'
+                  >Articles</a
                 >
                 <a
-                  class="hidden md:block cursor-pointer text-gray-600 hover:text-white uppercase"
+                  class="hidden md:block cursor-pointer text-gray-600 hover:text-white uppercase",
+                  href = '/Contact'
                   >Contact</a
                 >
                 <div

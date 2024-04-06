@@ -10,11 +10,19 @@ import random
 import os
 from django.contrib import  messages
 from transformers import pipeline
+import random
 
 # Create your views here.
 
 def index(request):
-    return render(request, "index.html")
+    num = random.randint(21,26)
+    arts = Post.objects.all()
+    n = 6
+    arts = arts[:n]
+    for i in arts:
+        i.article = i.article[0:255]+"..."
+    params = {'key':num,'no_of_arts':n, 'range':range(1,n), 'arts': arts}
+    return render(request, "indexNew.html",params)
 
 def about(request):
     return render(request, "about.html")
@@ -141,7 +149,7 @@ def article(request):
     # return render(request, "article.html")
 
 def search(request):
-    query=request.GET['query']
+    query=request.POST.get('search_query','')
     if query=="":
         return render(request,"search_empty.html")
         
