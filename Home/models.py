@@ -19,14 +19,16 @@ class Submissions(models.Model):
 
     def __str__(self):
         return self.name
+    
 class Contact(models.Model):
     sno = models.AutoField(primary_key=True)
-    name= models.CharField(max_length=100)
+    date= models.DateField(auto_now=True)
     email = models.CharField(max_length=100)
     phone= models.CharField(max_length=20)
+    image = models.ImageField(upload_to="contact_image/",default="",null=True)
     query=models.TextField()
 
     def __str__(self):
-        return self.name
+        return self.email
 
     

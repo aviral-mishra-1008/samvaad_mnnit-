@@ -32,6 +32,15 @@
       } 
 </style> 
 
+<style>
+.success{
+  padding:10px;
+  background:#7FFFD4;
+}
+</style>
+
+
+
 
  {% comment %} CSS for hover over effect! {% endcomment %}
 
@@ -42,6 +51,21 @@
 {% block title %} Samvaad {% endblock %} 
  
 {% block body %} 
+
+
+
+        {%comment%} FOR DISPLAYING MESSAGES{%endcomment%}
+        {% if messages %}
+            {% for message in messages %}
+            <div class='success'>
+                {{message}}
+              
+            </div>
+            {% endfor %}
+    {% endif %}
+
+
+
 {% comment %} <h1 class="text-gray-600 font-bold text-2xl mx-auto mt-[10px]">Gallery</h1>  {% endcomment %}
 <div class="grid"> 
   <img src="media\1.png" alt="">
@@ -97,4 +121,6 @@
     ); 
   }); 
 </script> 
+
+
 {% endblock %}
