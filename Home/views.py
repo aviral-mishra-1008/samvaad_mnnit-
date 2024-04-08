@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Submissions
 from .models import Contact
+from Vyas.models import Post
 import smtplib
 from Vyas.models import Post
 import random
@@ -68,13 +69,38 @@ def sub(request):
         estimated_time = request.POST.get('time',)
         image = request.FILES.get('image',)
         unique_id = random.randrange(1000000,99999999)
+
         load_dotenv()
         password = os.getenv("ADMIN_PASS") #Always use double inverted commas
-        submission = Submissions(name=name, email_id=email_id, phone_no=phone_no, heading=heading, article=article, insta=insta, reg_no=reg_no, branch=branch, year=year,estimated_time=estimated_time, image=image, unique_id=unique_id )
-        submission.save()
         server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
         server.starttls
         server.login("glasnost.mnnit@gmail.com", password)
+        
+        #IMPLEMENT A BETTER MATCH DETECTION METHODOLOGY POST STUDY IN FIELD!
+        li = Post.objects.values_list('heading',flat=True)
+        for i in li:
+            i = i.lower()
+            i.replace(" ","")
+
+        headings = heading
+        headings.replace(" ","")
+        headings.lower()
+
+        if(headings in li):
+            subject = "[Error Reported!]"
+            message = "The title or heading of the article appears to match with another article already published on the site, kindly review the article and resend!"
+            message1 = "Subject:{}\n\n{}".format(subject,message)
+            server.sendmail("glasnost.mnnit@gmail.com",email_id,message1)
+            server.quit()
+            print('here')
+            messages.error(request, 'The heading or the content of your article appears to match with some other article already published on the site, please review your article and submit again!!')
+            return redirect('/')
+            
+
+
+        submission = Submissions(name=name, email_id=email_id, phone_no=phone_no, heading=heading, article=article, insta=insta, reg_no=reg_no, branch=branch, year=year,estimated_time=estimated_time, image=image, unique_id=unique_id )
+        submission.save()
+       
         subject1 = "[Article Submission Successful!]"
         body1 = "Hi " + name + "!" + "\n\n" + "You have successfully submitted the article, please hold on while we review your article and if your article is found to be relevant and within guidelines of the website then it'll get published on the website within 3-4 business days!"
         message1 = "Subject:{}\n\n{}".format(subject1,body1)
@@ -151,14 +177,25 @@ def article(request):
         branch = field.branch
         u_id = field.unique_id
         image = field.image
-        print("Here is wht image prints: ",image)
         year = field.year
         push_data = Post(name=name, email_id = email, heading=head, estimated_time=time, article=article, image=image, branch=branch, year=year, unique_identifier=u_id,slug=slug)
         push_data.save()
         file = open("Templates\\"+str(u_id)+"s"+".html","w",encoding="utf-8") #USERS NEED TO COPY THE ABSOLUTE PATH OF TEMPLATE FOLDER AND PASTE HERE INCASE OF USE SINCE WE ARE FINDING IT A BIT HARD TO USE RELATIVE PATHS WITH OPEN FUNCTION
-        l = ['{% extends "init.html" %}\n',"<br>\n",'{% block title%}\n',"Article - Samvaad\n",'{% endblock %}\n','{% block body%}\n',"<br>\n","<center>\n",'h1  class="text-4xl pb-4">\n',head,"\n",'</h1>\n',"<img src='\media\\"+str(image)+"' width='30%' class='imageD'>\n","</center>\n","<hr color='black'>\n",'<div class="px-10" >',"<br>\n",article,"\n","</div>\n",'<br> <br>\n',"{%endblock%}"]
+        l = ['{% extends "initNew.html" %}\n',"<br>\n",'{% block title%}\n',"Article - Samvaad\n",'{% endblock %}\n','{% block body%}\n',"<br>\n","<center>\n",'<h1  class="text-4xl pb-4">\n',head,"\n",'</h1>\n',"<img src='\media\\"+str(image)+"' width='30%' class='imageD'>\n","</center>\n","<hr color='black'>\n",'<div class="px-10" >',"<br>\n",article,"\n","</div>\n",'<br> <br>\n',"{%endblock%}"]
         file.writelines(l)
         file.close()
+        load_dotenv()
+        password = os.getenv("ADMIN_PASS") #Always use double inverted commas
+        server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
+        server.starttls
+        server.login("glasnost.mnnit@gmail.com", password)
+        subject = "[Your Article Was Published!!]"
+        body = "Congratulations! Your Article which you posted recently, titled: "+head+" was published post approval by our team! You can view this by clicking on the following link: http://127.0.0.1:8000/article/"+u_id+'s/'
+        message = "Subject:{}\n\n{}".format(subject,body)
+        server.sendmail("glasnost.mnnit@gmail.com",email,message)
+        server.quit()
+        field.delete()
+
         return render(request,'index.html')
 
     else:

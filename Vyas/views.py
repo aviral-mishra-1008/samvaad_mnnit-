@@ -6,8 +6,9 @@ from math import ceil
 
 def first(request):
     arts = Post.objects.all()
-    n = 6
-    arts = arts[:n]
+    n = len(arts)
+    for i in arts:
+        i.article = i.article[0:255]+"...."
     params={'no_of_arts':n, 'range':range(1,n), 'arts': arts}
     return render(request, "firstpost.html", params)
 

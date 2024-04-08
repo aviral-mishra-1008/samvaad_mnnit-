@@ -37,6 +37,13 @@
   padding:10px;
   background:#7FFFD4;
 }
+
+.error{
+  padding:10px;
+  background:red;
+  color: white;
+}
+
 </style>
 
 
@@ -56,24 +63,24 @@
 
         {%comment%} FOR DISPLAYING MESSAGES{%endcomment%}
         {% if messages %}
+        <ul class="messages">
             {% for message in messages %}
-            <div class='success'>
-                {{message}}
-              
-            </div>
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
             {% endfor %}
+        </ul>
     {% endif %}
+
 
 
 
 {% comment %} <h1 class="text-gray-600 font-bold text-2xl mx-auto mt-[10px]">Gallery</h1>  {% endcomment %}
 <div class="grid"> 
-  <img src="media\1.png" alt="">
-  <img src="media\6.jpg" alt=""> 
-  <img src="media\4.jpg" alt=""> 
-  <img src="media\5.jpg" alt=""> 
-  <img src="media\2.jpg" alt=""> 
-  <img src="media\7.jpg" alt=""> 
+  <a href='/article/84016930s/'> <img src="media\1.png" alt=""> </a>
+  <a href='/article/78433561s/'> <img src="media\6.jpg" alt=""> </a>
+  <a href='/article/44168730s/'> <img src="media\4.jpg" alt=""> </a>
+  <a href='/article/37687202s/'> <img src="media\5.jpg" alt=""> </a>
+  <a href='/article/73495532s/'> <img src="media\2.jpg" alt=""> </a>
+  <a href='/article/58111889s/'> <img src="media\7.jpg" alt=""> </a>
 </div> 
 
 {% comment %} <h1 class="text-gray-600 font-bold text-2xl mx-auto mt-[10px]">Articles</h1> {% endcomment %}
