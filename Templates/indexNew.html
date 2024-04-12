@@ -75,7 +75,46 @@
 
 {% comment %} <h1 class="text-gray-600 font-bold text-2xl mx-auto mt-[10px]">Gallery</h1>  {% endcomment %}
 <div class="grid"> 
-  <a href='/article/84016930s/'> <img src="media\1.png" alt=""> </a>
+  {% comment %} <a href='/article/84016930s/'> <img src="media\1.png" alt=""> </a>
+   {% endcomment %}
+   {% comment %} <a href='/article/84016930s/' class="relative group">
+    <img src="media\1.png" alt="" class="w-full rounded-lg">
+    <div class="absolute inset-0 flex items-center justify-center opacity-0 bg-transparent bg-opacity-50 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+      <p class="text-white text-lg font-bold mb-2">Text 1</p>
+    </div>
+  </a> {% endcomment %}
+  <a href='/article/84016930s/'>
+  <div
+            class=" h-[300px] w-full  bg-red-400 cursor-pointer rounded-lg relative group"
+        >
+            <div
+                class="rounded-lg z-50 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out cursor-pointer absolute from-black/80 to-transparent bg-gradient-to-t inset-x-0 -bottom-2 pt-30 text-white flex items-end"
+            >
+                <div>
+                    <div
+                        class="transform-gpu  p-4 space-y-3 text-xl group-hover:opacity-100 group-hover:translate-y-0 translate-y-4 pb-10 transform transition duration-300 ease-in-out"
+                    >
+                        <div class="font-bold">Jessie Watsica</div>
+
+                        <div class="opacity-60 text-sm ">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing
+                            elit. Distinctio dolores error iure, perferendis
+                            sequi totam. Ad aliquam aperiam atque deleniti dolor
+                            dolorem enim esse et in, inventore itaque, pariatur
+                            reprehenderit.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <img
+                alt=""
+                class=" w-full h-[300px] rounded-lg  group-hover:scale-110 transition duration-300 ease-in-out"
+                src="media\1.png
+"
+            />
+        </div>
+      </a>      
+  
   <a href='/article/78433561s/'> <img src="media\6.jpg" alt=""> </a>
   <a href='/article/44168730s/'> <img src="media\4.jpg" alt=""> </a>
   <a href='/article/37687202s/'> <img src="media\5.jpg" alt=""> </a>
