@@ -83,7 +83,9 @@
       <p class="text-white text-lg font-bold mb-2">Text 1</p>
     </div>
   </a> {% endcomment %}
-  <a href='/article/84016930s/'>
+
+  {%for i in objs%}
+  <a href={{i.slug}}>
   <div
             class=" h-[300px] w-full  bg-red-400 cursor-pointer rounded-lg relative group"
         >
@@ -94,14 +96,10 @@
                     <div
                         class="transform-gpu  p-4 space-y-3 text-xl group-hover:opacity-100 group-hover:translate-y-0 translate-y-4 pb-10 transform transition duration-300 ease-in-out"
                     >
-                        <div class="font-bold">Jessie Watsica</div>
+                        <div class="font-bold">{{i.name}}</div>
 
                         <div class="opacity-60 text-sm ">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit. Distinctio dolores error iure, perferendis
-                            sequi totam. Ad aliquam aperiam atque deleniti dolor
-                            dolorem enim esse et in, inventore itaque, pariatur
-                            reprehenderit.
+                          {{i.article}}
                         </div>
                     </div>
                 </div>
@@ -109,17 +107,16 @@
             <img
                 alt=""
                 class=" w-full h-[300px] rounded-lg  group-hover:scale-110 transition duration-300 ease-in-out"
-                src="media\1.png
-"
+                src="/media/{{i.image}}"
             />
         </div>
       </a>      
-  
-  <a href='/article/78433561s/'> <img src="media\6.jpg" alt=""> </a>
+ {%endfor%} 
+  {% comment %} <a href='/article/78433561s/'> <img src="media\6.jpg" alt=""> </a>
   <a href='/article/44168730s/'> <img src="media\4.jpg" alt=""> </a>
   <a href='/article/37687202s/'> <img src="media\5.jpg" alt=""> </a>
   <a href='/article/73495532s/'> <img src="media\2.jpg" alt=""> </a>
-  <a href='/article/58111889s/'> <img src="media\7.jpg" alt=""> </a>
+  <a href='/article/58111889s/'> <img src="media\7.jpg" alt=""> </a> {% endcomment %}
 </div> 
 
 {% comment %} <h1 class="text-gray-600 font-bold text-2xl mx-auto mt-[10px]">Articles</h1> {% endcomment %}

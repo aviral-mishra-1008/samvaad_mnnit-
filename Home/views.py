@@ -23,7 +23,17 @@ def index(request):
     arts = arts[:n]
     for i in arts:
         i.article = i.article[0:255]+"..."
-    params = {'key':num,'no_of_arts':n, 'range':range(1,n), 'arts': arts}
+
+
+    li = [84016930,78433561,44168730,37687202,73495532,58111889]
+    objs = []
+    for i in li:
+        data = Post.objects.filter(unique_identifier = i)
+        data = data[0]
+        data.article = data.article[0:255]+"..."
+        objs.append(data)
+
+    params = {'key':num,'no_of_arts':n, 'range':range(1,n), 'arts': arts, 'objs':objs}
     return render(request, "indexNew.html",params)
 
 def about(request):
@@ -131,7 +141,6 @@ def backend(request):
             name = iD.name
             email = iD.email_id
             article = iD.article
-            art = article[0:255]+"......."
             branch = iD.branch
             heading = iD.heading
             time = iD.estimated_time
