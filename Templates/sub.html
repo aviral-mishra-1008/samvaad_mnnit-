@@ -1,72 +1,60 @@
-{% extends 'init.html' %}
+{% extends 'initNew.html' %}
 {% load static %}
 
 {% block title %} Submit Your Articles! {% endblock %}
 
 {% block body %}
-<style>
-    body {
-      background-image: url('https://wallpapercave.com/wp/wp2757874.gif');
-    }
-    </style>
 
-    <style>
-        .bg-dark{
-          background: rgb(2,0,36);
-          background: linear-gradient(77deg, rgba(2,0,36,1) 0%, rgba(11,9,121,0.0985644257703081) 61%, rgba(255,0,0,1) 100%);   
-        }   
-.form{
-            margin-left=10px
-        }
-  </style>
-<font color = "white">
-<h3> Hi There! Welcome To Samvaad </h3>
+  <div class="px-8 py-8 text-wrap">
+    <h3> <b> Hi There! Welcome To Samvaad </b> </h3>
+        <br>
+        <h4>We thank you for taking your time to write an article for the institute blogsite, we hope that your article doesn't contain things that are controversial and create problems in smooth functioning of the site, please read the format of submission and submit the article by filling the form given below! </h4>
     <br>
-    <h4>We thank you for taking your time to write an article for the institute blogsite, we hope that your article doesn't contain things that are controversial and create problems in smooth functioning of the site, please read the format of submission and submit the article by filling the form given below! </h4>
-<hr color="#500221">
-<h3> Guidelines </h3>
-<h4> <p>
-       . Your article can be of any desirable length
-       <br>
-       . The topic must be relevant 
-       <br>
-       . You must provide one image representing the idea conveyed in your article, the image must have a good resolution and must not violate community guidelines
-       <br>
-       . You must provide a heading for the article
-       <br>
-       . All the details entered by you should be correct and if found incorrect on cross-checking then it can lead to rejection of your article!
-       <br>
-       <br>
+        <h3> <b> Guidelines </b> </h3>
+    <h4> <p>
+          . Your article can be of any desirable length
+          <br>
+          . The topic must be relevant 
+          <br>
+          . You must provide one image representing the idea conveyed in your article it must not violate community guidelines
+          <br>
+          . You must provide a heading for the article
+          <br>
+          . All the details entered by you should be correct, incorrect information can lead to rejection of your article!
+          <br>
+          <br>
+    </div>
+
+<div class="px-8 py-8">
        <h3> Submission Form </h3>
 </p> </h4>
-  <div class="container"  class="form" style="width: 50%; height:60px; margin: left; padding-left:20px;;">
+  <div class="px-8 py-8"  class="form" style="width: 50%; height:60px; margin: left; padding-left:20px;;">
     <form action="/Submission/" method="post" enctype="multipart/form-data">{% csrf_token %}
  <div class="form-group">
    <label for="name">Name</label>
    <input type="text" class="form-control" id="name" name="name" placeholder="Enter Your Name" style="background:background: rgb(255,255,255);
 background: radial-gradient(circle, rgba(255,255,255,0.7502188375350141) 0%, rgba(255,255,255,0.75) 100%)">
  </div>
-         <div class="form-group">
+  
+ <div class="form-group">
    <label for="name">Email Address</label>
    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email Address" style="background:background: rgb(255,255,255);
 background: radial-gradient(circle, rgba(255,255,255,0.7502188375350141) 0%, rgba(255,255,255,0.75) 100%)">
  </div>
 
-         <div class="form-group">
+  <div class="form-group">
    <label for="name">Phone Number</label>
    <input type="tel" class="form-control" id="phone_no" name="phone_no" placeholder="Enter Your Phone Number" style="background:background: rgb(255,255,255);
 background: radial-gradient(circle, rgba(255,255,255,0.7502188375350141) 0%, rgba(255,255,255,0.75) 100%)"  >
  </div>
 
  
-         <div class="form-group">
   <div class="form-group">
    <label for="desc" >Heading</label>
    <textarea class="form-control" id="heading" name="heading" rows="3" style="background:background: rgb(255,255,255);
 background: radial-gradient(circle, rgba(255,255,255,0.7502188375350141) 0%, rgba(255,255,255,0.75) 100%)"></textarea>
  </div>
 
-      <div class="form-group">
   <div class="form-group">
    <label for="desc">Article</label>
    <textarea class="form-control" id="article" name="article" rows="3" style="background: rgb(255,255,255);
@@ -115,4 +103,6 @@ background: radial-gradient(circle, rgba(255,255,255,0.7502188375350141) 0%, rgb
 <button type="submit" class="btn btn-warning">Submit</button>
 </form>
 </div>
- {% endblock %}
+</div>
+
+{% endblock %}

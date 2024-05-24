@@ -1,74 +1,51 @@
-{% extends 'init.html' %}
+{% extends 'initNew.html' %}
 
 
 {% block title %} Backend {% endblock %}
 
 {% block body %}
-<style>
-    div{
-        padding-left: 5%;
-        padding-right:5%;
-    }
-
-    body{
-        background: url('https://wallpapercave.com/wp/wp3592949.jpg')
-    }
-
-    .bg-dark{
-        background: rgb(0,0,0);
-        background: linear-gradient(87deg, rgba(0,0,0,1) 0%, rgba(136,17,37,1) 99%);
-    }
-    </style>
-<font color="white">
 <br>
-<div>
+<div class="px-8 py-4">
 <h3>
-U_Id of user is : {{ query7 }}
+<b> U_Id of user is : </b> {{ query7 }}
 <br>
-Name of the person who submitted article is : {{ query0 }}
+<b> Name of the person who submitted article is : </b> {{ query0 }}
 <br>
-Branch : {{query3}}
+<b> Branch : </b> {{query3}}
 <br>
-Year Of Enrollment : {{query6}}
-<hr color="red">
+<b> Year Of Enrollment </b> : {{query6}}
 <br>
-Heading of article is : {{ query4 }}
+<b> Heading of article is :</b> {{ query4 }}
 <br>
 <br>
-The Image Submitted is:
+<b> The Image Submitted is:</b>
 <br>
 <br>
 <img src = {{query8}} width='200'>
 <br>
 <br>
-The Sentiment Analyser Predicts Overall Sentiment To Be: {{query9}}
-<br>
-With A Score Of: {{query10}}
-<br>
-<br>
-The article is : {{ query2 }}
+<b> The Article </b> : <br> {{ query2 }}
 </h3>
 <br>
 <br>
-<hr color="Red">
-<h2> Now Please Review The Particulars Of The Article: </h2>
-<br>
+<div class="border-2 md-4 px-2 py-2 border-red-700">
+<h2 class="underline"> Now Please Review The Particulars Of The Article: </h2>
 <br>
 <form action="/Verification/" method="post">{% csrf_token %}
     <input type="text" name="U_id" placeholder="U_Id Of User"> 
     <BR>
-    <input type="checkbox" name="Mnnitian"> User Verified As Someone From MNNIT?
+    <input type="checkbox" class="accent-green-500" name="Mnnitian"> User Verified As Someone From MNNIT?
     <br>
-    <input type="checkbox" name="Headline"> Heading Is Not Controversial?
+    <input type="checkbox" class="accent-green-500" name="Headline"> Heading Is Not Controversial?
     <br>
-    <input type="checkbox" name="Article"> Article Text Is Not Controversial?
+    <input type="checkbox" class="accent-green-500" name="Article"> Article Text Is Not Controversial?
     <br>
-    <input type="checkbox" name="ImageVer"> Image Is Appropriate?
+    <input type="checkbox" class="accent-green-500" name="ImageVer"> Image Is Appropriate?
     <br>
-    <button type="Submit" class="btn btn-warning"> Submit Report </button>
+    <button type="Submit" class="border-2 m-2 px-1 py-1 border-dotted rounded-md border-green-500 hover:bg-green-500"> Submit Report </button>
     <br>
     <br>
-
 </form>
+</div>
 </div>
 {% endblock %}

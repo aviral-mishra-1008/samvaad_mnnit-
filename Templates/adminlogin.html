@@ -1,105 +1,37 @@
-{%extends 'init.html'%}
+{%extends 'initNew.html'%}
 {%block title%} Backend Site {%endblock%}
 {% block body %}
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body, html {
-  height: 100%;
-  font-family: Arial, Helvetica, sans-serif;
-}
 
-* {
-  box-sizing: border-box;
-}
-
-.bg-img {
-  /* The image used */
-  background-image: url("https://dsm04pap002files.storage.live.com/y4mBrxFzHucCv54NaNxt9eu82Z8TJdsKJiXghrhfUQVZiGBpbve2jpy8aLhjb5yzb-7zZU5kiZjQADKIs4SjbDJV3vClQsauOtd0wo5ivjGNJjPee038i38ilqF9oEk43nan5jo4U3sBhLchLK76L2pxBBTS6hpCF-aEeI-jY9ttOxHSKIc5He0FGRJdShyE3J6?width=3837&height=1607&cropmode=none");
-
-  min-height: 380px;
-
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-}
-
-/* Add styles to the form container */
-.container {
-  position: absolute;
-  right: 0;
-  margin: 20px;
-  max-width: 300px;
-  padding: 16px;
-  background-color: white;
-}
-
-/* Full-width input fields */
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  border: none;
-  background: #f1f1f1;
-}
-
-input[type=text]:focus, input[type=password]:focus {
-  background-color: #ddd;
-  outline: none;
-}
-
-/* Set a style for the submit button */
-
-
-.btn:hover {
-  opacity: 1;
-}
-
-body {
-      background-image: url('https://static.vecteezy.com/system/resources/thumbnails/002/524/361/original/black-night-sky-with-twinkling-stars-free-video.jpg');
-	  
-    }
-h2 {
-  color: white;
-}
-p {
-  color: white;
-}
-
-.bg-dark{
-  background: rgb(0,0,0);
-background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 100%);
-}
-
-	
-	
-
-</style>
-</head>
 <br>
-<div class="about-section">
-  <h2>Admin Authentication</h2>
-  <p>Guidelines for admins:<br>
+<div class="flex flex-auto justify-center">
+<div class="px-8 py-8">
+  <b> <h2>Admin Authentication</h2>
+  <p>Guidelines for admins:<br> </b>
   1- Enter The Assigned Username<br>
   2- Enter The Password Provided By Backend<br>
   3- Click On Submit Button<br>
   </p>
-  
 </div>
-<div class="bg-img">
+
+<div class="px-8 py-8">
+<div class="px-8 py-8 border-4 border-red-700 max-w-96">
   <form action="/Backend/" method="post" class="container"> {% csrf_token %}
-    <h1>Login</h1>
+    <div class="px-1 py-1">
+    <label for="username"><b>Username: </b></label>
+    <input type="text" class="px-2 hover:border-2 hover:border-red-500" placeholder="Enter Username" name="Username" id="Username" required>
+    </div>
+    <br>
 
-    <label for="username"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="Username" id="Username" required>
+    <div class="px-1 py-1">
+    <label for="psw"><b>Password: </b></label>
+    <input type="password" class="px-2 hover:border-2 hover:border-red-500" placeholder="Enter Password" name="psw" id="psw" required>
+    </div>
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
-
-    <button type="submit" class="btn btn-outline-warning">Login</button>
+    <br>
+    <button type="submit" class="border-2 border-indigo-800 rounded-md border-dashed py-1 px-1 hover:bg-indigo-800 hover:text-white">  Login  </button>
   </form>
 </div>
-
-
+</div>
+</div>
 {%endblock%}

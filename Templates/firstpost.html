@@ -1,44 +1,32 @@
-{% extends 'init.html' %}
+{% extends 'initNew.html' %}
 
 
 {% block title %} Samvad Blog {% endblock %}
 
 {% block body %}
-<style>
-  div{
-    padding-left: 10%;
-    padding-right: 10%;
-  }
 
-  body{
-    background: url("https://c.wallhere.com/photos/a2/d8/digital_art_abstract_minimalism_black_3D_lines_simple-66610.jpg!d")
-  }
+<section class="dark:bg-orange-50 dark:text-gray-800">
 
-  .bg-dark{
-    background: rgb(0,0,0);
-background: linear-gradient(186deg, rgba(0,0,0,1) 0%, rgba(55,9,17,1) 99%);
-  }
-</style>
-<br>
-<br>
-<font color="white">
-{% for i in arts %}
-  <div class="row my-5">
-    <div class="col-md-8">
-      <h2>{{i.heading}}</h2>
-      <br>
-      <br>
-      <strong class="d-inline-block mb-2 text-primary">Article  by {{i.name}}</strong>
-      <br>
-      Estimated Time Of Reading: {{i.estimated_time}}
-      <p>{{i.article}}</p>
-      <a href="/{{i.slug}}" class="btn btn-warning">Read More</a>
+  <div class="text-center text-3xl py-4 font-bold">
+    Articles
     </div>
-    <div class="col-md-4">
 
-      <img src="/media/{{i.image}}" class="img-fluid rounded" width='180'>
-    </div>
-  </div>
-{% endfor %}
+
+	<div class="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">
+		<div class="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+			{%for i in arts%}
+			<a rel="noopener noreferrer" href="{{i.slug}}" class="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:bg-gray-50">
+				<img role="presentation" class="object-cover w-full rounded h-44 dark:bg-gray-500" src="/media/{{i.image}}" />
+				<div class="p-6 space-y-2">
+					<h3 class="text-2xl font-semibold group-hover:underline group-focus:underline">{{i.heading}}</h3>
+					<span class="text-xs dark:text-gray-600">Estimated Time of Reading: {{i.estimated_time}} </span>
+					<p> {{i.article}}</p>
+				</div>
+			</a>
+		{%endfor%}
+		</div> 
+	</div>
+</section>
+
          
 {% endblock %}

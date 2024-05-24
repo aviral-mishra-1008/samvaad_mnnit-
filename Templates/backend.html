@@ -1,33 +1,21 @@
-{% extends "init.html" %}
+{% extends "initNew.html" %}
 {%load static%}
 {% block title%} Backend Site {%endblock%}
 {%block body%}
-<style>
-body{
-  background: url('https://gifimage.net/wp-content/uploads/2017/09/black-background-gif-11.gif')
-}
 
-form{
-  padding-right: 50%;
-  padding-left: 5%;
-}
-
-.bg-dark{
-  background: rgb(0,0,0);
-background: linear-gradient(186deg, rgba(0,0,0,1) 0%, rgba(55,9,17,1) 99%);
-}
-</style>
 <br>
 <br>
-<br>
-<br>
-<form action="/backend_uid/" method="post"> {% csrf_token %}
-    <div class="form-group">
-    <input type="text" class="form-control" id="u_id" name="u_id" placeholder="Enter U_id" style="background:background: rgb(255,255,255);
+<form action="/backend_uid/" method="post"> 
+  {% csrf_token %}
+  <div class="px-8 py-8">
+  <p class="capitalize"> Please Enter The U_ID received on email to continue!! </p>
+    <div class="form-group py-8">
+    <input type="text" class="form-control hover:border-2 hover:border-red-500" id="u_id" name="u_id" placeholder="Enter U_id" style="background:background: rgb(255,255,255);
     background: radial-gradient(circle, rgba(255,255,255,0.7502188375350141) 0%, rgba(255,255,255,0.75) 100%)">
      </div>
-    <button class="btn btn-warning" type="submit">Submit</button>
+    <button class="px-1 py-1 border-2 border-indigo-700 border-dotted hover:text-white hover:bg-indigo-700 rounded-md" type="submit">Submit</button>
   </form>
+</div>
 
 
 {%endblock%}
