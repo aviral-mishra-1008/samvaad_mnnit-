@@ -10,7 +10,6 @@ from Vyas.models import Post
 import random
 import os
 from django.contrib import  messages
-from transformers import pipeline
 import random
 from datetime import datetime
 
@@ -146,18 +145,9 @@ def backend(request):
             time = iD.estimated_time
             year = iD.year
             image = iD.image
-            image = "\media\\"+str(image)
-            try:
-                sentiment_pipeline = pipeline("sentiment-analysis")
-                result = sentiment_pipeline(article)
-                predicted_sentiment = result[0]['label']
-                score = round(result[0]['score'],5)
-            except:
-                predicted_sentiment = "Couldn't retrieve info!"
-                score = '-'
-                
+            image = "\media\\"+str(image)                
 
-            l.extend([name,email,article,branch,heading,time,year,u_id,image,predicted_sentiment,score])
+            l.extend([name,email,article,branch,heading,time,year,u_id,image])
             for i in range(11):
                 t = str(i)
                 query = "query"+t
@@ -189,7 +179,7 @@ def article(request):
         year = field.year
         push_data = Post(name=name, email_id = email, heading=head, estimated_time=time, article=article, image=image, branch=branch, year=year, unique_identifier=u_id,slug=slug)
         push_data.save()
-        file = open("Templates\\"+str(u_id)+"s"+".html","w",encoding="utf-8") #USERS NEED TO COPY THE ABSOLUTE PATH OF TEMPLATE FOLDER AND PASTE HERE INCASE OF USE SINCE WE ARE FINDING IT A BIT HARD TO USE RELATIVE PATHS WITH OPEN FUNCTION
+        file = open("Templates\\Articles\\"+str(u_id)+"s"+".html","w",encoding="utf-8") #USERS NEED TO COPY THE ABSOLUTE PATH OF TEMPLATE FOLDER AND PASTE HERE INCASE OF USE SINCE WE ARE FINDING IT A BIT HARD TO USE RELATIVE PATHS WITH OPEN FUNCTION
         l = ['{% extends "initNew.html" %}\n',"<br>\n",'{% block title%}\n',"Article - Samvaad\n",'{% endblock %}\n','{% block body%}\n',"<br>\n","<center>\n",'<h1  class="text-4xl pb-4">\n',head,"\n",'</h1>\n',"<img src='\media\\"+str(image)+"' width='30%' class='imageD'>\n","</center>\n","<hr color='black'>\n",'<div class="px-10" >',"<br>\n",article,"\n","</div>\n",'<br> <br>\n',"{%endblock%}"]
         file.writelines(l)
         file.close()

@@ -16,7 +16,7 @@ def first(request):
 
 def allpost(request, slug):
     try:
-        return render(request,f"{slug}.html")
+        return render(request,f"Articles/{slug}.html")
     except:
         return render(request,"erono1.html")
 
