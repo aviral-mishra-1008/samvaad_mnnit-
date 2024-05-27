@@ -11,6 +11,8 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Samvad.settings')
+setting_module = 'Samvad.deployment' if 'WEBSITE_HOSTNAME' in os.environ else 'Samvad.settings'
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', setting_module)
 
 application = get_wsgi_application()

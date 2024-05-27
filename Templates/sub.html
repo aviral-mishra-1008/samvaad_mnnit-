@@ -5,93 +5,93 @@
 
 {% block body %}
 
-<div class="flex flex-col items-center bg-gray-800 text-gray-200 ">
-    <div class="px-8 py-8 text-wrap text-white">
-      <h3> <b> Hi There! Welcome To Samvaad </b> </h3>
-          <br>
-          <h4>We thank you for taking your time to write an article for the institute blogsite, we hope that your article doesn't contain things that are controversial and create problems in smooth functioning of the site, please read the format of submission and submit the article by filling the form given below! </h4>
-      <br>
-          <h3> <b> Guidelines </b> </h3>
-      <h4> <p>
-            . Your article can be of any desirable length
-            <br>
-            . The topic must be relevant 
-            <br>
-            . You must provide one image representing the idea conveyed in your article it must not violate community guidelines
-            <br>
-            . You must provide a heading for the article
-            <br>
-            . All the details entered by you should be correct, incorrect information can lead to rejection of your article!
-            <br>
-            <br>
-      </div>
-      <div class="px-2 py-2 h-[1000px] bg-gray-900 w-[50%] flex flex-col items-center mb-4 border-slate-200 rounded-md">
-        <h3 class="font-bold text-2xl text-gray-300">Submission Form</h3>
+<div class="flex flex-auto text-gray-800 ">
+      <div class="px-2 py-2 h-fit m-8 bg-[#A07856]  w-[100%] flex flex-col items-center mb-4 border-slate-200 rounded-md">
+        <h3 class="font-bold text-2xl text-gray-300 pt-4">Submission Form</h3>
     
         <div class="form px-8 py-8 flex flex-col space-y-8">
             <form class="flex flex-col space-y-2" action="/Submission/" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="form-group flex flex-col">
-                    <label for="name">Name</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter Your Name" style="background: radial-gradient(circle, rgba(255,255,255,0.7502188375350141) 0%, rgba(255,255,255,0.75) 100%);">
+             <label for="name">Name</label>
+                <input type="text" class="form-control rounded-md bg-white px-1 py-1" id="name" name="name" placeholder="Enter Your Name" style="background: radial-gradient(circle, rgba(255,255,255,0.7502188375350141) 0%, rgba(255,255,255,0.75) 100%);">
                 </div>
     
                 <div class="form-group flex flex-col">
                     <label for="email">Email Address</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email Address" style="background: radial-gradient(circle, rgba(255,255,255,0.7502188375350141) 0%, rgba(255,255,255,0.75) 100%);">
+                    <input type="email" class="form-control rounded-md bg-white px-1 py-1" id="email" name="email" placeholder="Enter Your Email Address" style="background: radial-gradient(circle, rgba(255,255,255,0.7502188375350141) 0%, rgba(255,255,255,0.75) 100%);">
                 </div>
     
                 <div class="form-group flex flex-col">
                     <label for="phone_no">Phone Number</label>
-                    <input type="tel" class="form-control" id="phone_no" name="phone_no" placeholder="Enter Your Phone Number" style="background: radial-gradient(circle, rgba(255,255,255,0.7502188375350141) 0%, rgba(255,255,255,0.75) 100%);">
+                    <input type="tel" class="form-control rounded-md bg-white px-1 py-1" id="phone_no" name="phone_no" placeholder="Enter Your Phone Number" style="background: radial-gradient(circle, rgba(255,255,255,0.7502188375350141) 0%, rgba(255,255,255,0.75) 100%);">
                 </div>
     
                 <div class="form-group flex flex-col">
                     <label for="heading">Heading</label>
-                    <textarea class="form-control" id="heading" name="heading" rows="3" style="background: radial-gradient(circle, rgba(255,255,255,0.7502188375350141) 0%, rgba(255,255,255,0.75) 100%);"></textarea>
+                    <textarea class="form-control rounded-md bg-white px-1 py-1" id="heading" name="heading" rows="3" style="background: radial-gradient(circle, rgba(255,255,255,0.7502188375350141) 0%, rgba(255,255,255,0.75) 100%);"></textarea>
                 </div>
     
                 <div class="form-group flex flex-col">
                     <label for="article">Article</label>
-                    <textarea class="form-control" id="article" name="article" rows="3" style="background: radial-gradient(circle, rgba(255,255,255,0.7502188375350141) 0%, rgba(255,255,255,0.75) 100%);"></textarea>
+                    <textarea class="form-control rounded-md bg-white px-1 py-1" id="article" name="article" rows="3" style="background: radial-gradient(circle, rgba(255,255,255,0.7502188375350141) 0%, rgba(255,255,255,0.75) 100%);"></textarea>
                 </div>
     
                 <div class="form-group flex flex-col">
                     <label for="branch">Branch</label>
-                    <input type="text" class="form-control" id="branch" name="branch" placeholder="Your Branch" style="background: radial-gradient(circle, rgba(255,255,255,0.7502188375350141) 0%, rgba(255,255,255,0.75) 100%);">
+                    <input type="text" class="form-control rounded-md bg-white px-1 py-1" id="branch" name="branch" placeholder="Your Branch" style="background: radial-gradient(circle, rgba(255,255,255,0.7502188375350141) 0%, rgba(255,255,255,0.75) 100%);">
                 </div>
     
                 <div class="form-group flex flex-col">
                     <label for="ig">Instagram Handle</label>
-                    <input type="text" class="form-control" id="ig" name="ig" placeholder="Your Insta Id" style="background: radial-gradient(circle, rgba(255,255,255,0.7502188375350141) 0%, rgba(255,255,255,0.75) 100%);">
+                    <input type="text" class="form-control rounded-md bg-white px-1 py-1" id="ig" name="ig" placeholder="Your Insta Id" style="background: radial-gradient(circle, rgba(255,255,255,0.7502188375350141) 0%, rgba(255,255,255,0.75) 100%);">
                 </div>
     
                 <div class="form-group flex flex-col">
                     <label for="reg">Registration Number</label>
-                    <input type="number" class="form-control" id="reg" name="reg" placeholder="Your Registration Number" style="background: radial-gradient(circle, rgba(255,255,255,0.7502188375350141) 0%, rgba(255,255,255,0.75) 100%);">
+                    <input type="number" class="form-control rounded-md bg-white px-1 py-1" id="reg" name="reg" placeholder="Your Registration Number" style="background: radial-gradient(circle, rgba(255,255,255,0.7502188375350141) 0%, rgba(255,255,255,0.75) 100%);">
                 </div>
     
                 <div class="form-group flex flex-col">
                     <label for="year">Year</label>
-                    <input type="number" class="form-control" id="year" name="year" placeholder="Your Year Of Enrollment" style="background: radial-gradient(circle, rgba(255,255,255,0.7502188375350141) 0%, rgba(255,255,255,0.75) 100%);">
+                    <input type="number" class="form-control rounded-md bg-white px-1 py-1" id="year" name="year" placeholder="Your Year Of Enrollment" style="background: radial-gradient(circle, rgba(255,255,255,0.7502188375350141) 0%, rgba(255,255,255,0.75) 100%);">
                 </div>
     
                 <div class="form-group flex flex-col">
                     <label for="time">Estimated Time Of Reading</label>
-                    <input type="number" class="form-control" id="time" name="time" placeholder="Estimated Time Of Reading" style="background: radial-gradient(circle, rgba(255,255,255,0.7502188375350141) 0%, rgba(255,255,255,0.75) 100%);">
+                    <input type="number" class="form-control rounded-md bg-white px-1 py-1" id="time" name="time" placeholder="Estimated Time Of Reading" style="background: radial-gradient(circle, rgba(255,255,255,0.7502188375350141) 0%, rgba(255,255,255,0.75) 100%);">
                 </div>
     
                 <div class="form-group flex flex-col">
                     <label for="image">Image</label>
-                    <input type="file" class="form-control-file" id="image" name="image" accept="image/*">
+                    <input type="file" class="form-control-file rounded-md  px-1 py-1" id="image" name="image" accept="image/*">
                 </div>
     
                 <label class="text-gray-300">Please Mail Us Incase You Want Us To Design A Custom HTML Article Page. Email Id: glasnost.mnnit@gmail.com. Note: The Response From Team Will Be Based On Availability Of Time And The Overall Appeal Of Your Article Request</label>
                 <br>
-                <button type="submit" class="mx-auto btn btn-warning border-solid rounded-md p-2 bg-red-500 w-[80px]">Submit</button>
+                <button type="submit" class="mx-auto btn btn-warning border-solid rounded-md p-2 bg-red-600 w-[80px]">Submit</button>
             </form>
         </div>
     </div>
+    <div class="px-8 py-8 text-wrap text-black">
+        <h3> <b> Hi There! Welcome To Samvaad </b> </h3>
+            <br>
+            <h4>We thank you for taking your time to write an article for the institute blogsite, we hope that your article doesn't contain things that are controversial and create problems in smooth functioning of the site, please read the format of submission and submit the article by filling the form given below! </h4>
+        <br>
+            <h3> <b> Guidelines </b> </h3>
+        <h4> <p>
+              . Your article can be of any desirable length
+              <br>
+              . The topic must be relevant 
+              <br>
+              . You must provide one image representing the idea conveyed in your article it must not violate community guidelines
+              <br>
+              . You must provide a heading for the article
+              <br>
+              . All the details entered by you should be correct, incorrect information can lead to rejection of your article!
+              <br>
+              <br>
+        </div>
 </div>
 
   

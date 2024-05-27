@@ -4,9 +4,9 @@
 {% block title %} Contact Us - Samvaad {% endblock %}
 {% block body %}
 
-<div class="flex flex-auto justify-center bg-gray-900 space-x-4">
+<div class="flex flex-auto justify-center  space-x-4">
 <div class="pl-8 py-8 h-[670px] mb-16">
-<section class="max-w-3xl p-6 ml-0 mb-0 bg-brown-600 rounded-md shadow-md dark:bg-gray-800 mt-5">
+<section class="max-w-3xl p-6 ml-0 mb-0 bg-brown-600 rounded-md shadow-md dark:bg-[#B39977] hover:bg-[#A07856] mt-5">
     <h1 class="text-xl font-bold text-white capitalize dark:text-white">Contact Us</h1>
     <form action="/Contact/" method="post" enctype="multipart/form-data">
         {% csrf_token %}
@@ -14,17 +14,17 @@
 
             <div>
                 <label class="text-white dark:text-gray-200" for="password">Phone</label>
-                <input id="phone" name="phone" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                <input id="phone" name="phone" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-[#B39977]  dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
             </div>
 
             <div>
                 <label class="text-gray-700 dark:text-gray-200" for="emailAddress">Email Address</label>
-                <input id="email" name="email" type="email" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                <input id="email" name="email" type="email" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-[#B39977] dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
             </div>
 
             <div>
                 <label class="text-white dark:text-gray-200" for="date">Date</label>
-                <input id="date" name='date' type="date" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                <input id="date" name='date' type="date" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-[#B39977]  dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
             </div>
             
             
@@ -54,7 +54,7 @@
             </div>
             <div>
                 <label class="text-white dark:text-gray-200" for="passwordConfirmation">Query</label>
-                <textarea id="query" name="query" type="textarea" class="block w-full h-[150px] px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"></textarea>
+                <textarea id="query" name="query" type="textarea" class="block w-full h-[150px] px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-[#B39977]  dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"></textarea>
             </div>
             
         </div>

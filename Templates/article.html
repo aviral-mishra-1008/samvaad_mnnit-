@@ -32,7 +32,7 @@
 <h2 class="underline"> Now Please Review The Particulars Of The Article: </h2>
 <br>
 <form action="/Verification/" method="post">{% csrf_token %}
-    <input type="text" name="U_id" placeholder="U_Id Of User"> 
+    <input type="text" name="U_id" value={{query7}} readonly> 
     <BR>
     <input type="checkbox" class="accent-green-500" name="Mnnitian"> User Verified As Someone From MNNIT?
     <br>

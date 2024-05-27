@@ -10,7 +10,6 @@ from Vyas.models import Post
 import random
 import os
 from django.contrib import  messages
-import random
 from datetime import datetime
 
 # Create your views here.
@@ -148,11 +147,10 @@ def backend(request):
             image = "\media\\"+str(image)                
 
             l.extend([name,email,article,branch,heading,time,year,u_id,image])
-            for i in range(11):
+            for i in range(9):
                 t = str(i)
                 query = "query"+t
                 params[query]=l[i]
-                
             return render(request, "article.html",params)
         except:
             return render(request, 'erono1.html')
@@ -189,19 +187,21 @@ def article(request):
         server.starttls
         server.login("glasnost.mnnit@gmail.com", password)
         subject = "[Your Article Was Published!!]"
-        body = "Congratulations! Your Article which you posted recently, titled: "+head+" was published post approval by our team! You can view this by clicking on the following link: http://127.0.0.1:8000/article/"+u_id+'s/'
+        body = "Congratulations! Your Article which you posted recently, titled: "+head+" was published post approval by our team! You can view this by clicking on the following link: http://127.0.0.1:8000/article/"+str(u_id)+'s/'
         message = "Subject:{}\n\n{}".format(subject,body)
         server.sendmail("glasnost.mnnit@gmail.com",email,message)
         server.quit()
         field.delete()
 
-        return render(request,'index.html')
+        Submissions.objects.filter(unique_id=u_id).delete()
+
+        return redirect("/")
 
     else:
         field = Submissions.objects.get(unique_id=u_id)
         field.delete()
         return render(request, 'index.html')  
-    # return render(request, "article.html")
+    
 
 def search(request):
     query=request.POST.get('search_query','')
@@ -217,8 +217,6 @@ def search(request):
         allPosts=  allPostsTitle.union(allPostsContent, allPostsAuthor)
         for post in allPosts:
             post.image = '/media/'+str(post.image)
-    # if allPosts.count()==0:
-    #      return HttpResponse("try some search")
        
     params={'allPosts': allPosts, 'query': query}
     return render(request, 'search.html', params)

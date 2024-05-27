@@ -73,16 +73,7 @@
 
 
 
-{% comment %} <h1 class="text-gray-600 font-bold text-2xl mx-auto mt-[10px]">Gallery</h1>  {% endcomment %}
 <div class="grid"> 
-  {% comment %} <a href='/article/84016930s/'> <img src="media\1.png" alt=""> </a>
-   {% endcomment %}
-   {% comment %} <a href='/article/84016930s/' class="relative group">
-    <img src="media\1.png" alt="" class="w-full rounded-lg">
-    <div class="absolute inset-0 flex items-center justify-center opacity-0 bg-transparent bg-opacity-50 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
-      <p class="text-white text-lg font-bold mb-2">Text 1</p>
-    </div>
-  </a> {% endcomment %}
 
   {%for i in objs%}
   <a href={{i.slug}}>
@@ -112,20 +103,14 @@
         </div>
       </a>      
  {%endfor%} 
-  {% comment %} <a href='/article/78433561s/'> <img src="media\6.jpg" alt=""> </a>
-  <a href='/article/44168730s/'> <img src="media\4.jpg" alt=""> </a>
-  <a href='/article/37687202s/'> <img src="media\5.jpg" alt=""> </a>
-  <a href='/article/73495532s/'> <img src="media\2.jpg" alt=""> </a>
-  <a href='/article/58111889s/'> <img src="media\7.jpg" alt=""> </a> {% endcomment %}
 </div> 
 
-{% comment %} <h1 class="text-gray-600 font-bold text-2xl mx-auto mt-[10px]">Articles</h1> {% endcomment %}
 
-<section class="dark:bg-orange-50 dark:text-gray-800">
-	<div class="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">
+<section class="dark:bg-orange-100 dark:text-gray-800">
+	<div class="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12 ">
 		<a rel="noopener noreferrer" href="/article" class="block max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12 dark:bg-gray-50">
 			<img src="media\{{key}}.jpg" alt="" class="object-cover w-full h-64 rounded sm:h-96 lg:col-span-7 dark:bg-gray-500" />
-			<div class="p-6 space-y-2 lg:col-span-5">
+			<div class="p-6 space-y-2 lg:col-span-5 border-b-2 border-black">
 				<h3 class="text-2xl font-semibold sm:text-4xl group-hover:underline group-focus:underline">Culrav Avishkar 2024!</h3>
 				<span class="text-xs dark:text-gray-600">16-22 March, 2024</span>
 				<p>Witness the extravagent celebration and fun in the annual cultural-technical fest of MNNIT through vivid articles</p>

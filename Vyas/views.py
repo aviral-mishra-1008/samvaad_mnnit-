@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Post
 from math import ceil
+from Home.models import Submissions
 
 
 def first(request):
