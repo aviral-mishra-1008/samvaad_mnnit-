@@ -11,6 +11,7 @@ import random
 import os
 from django.contrib import  messages
 from datetime import datetime
+from django.contrib.auth import authenticate,login
 
 # Create your views here.
 
@@ -126,9 +127,6 @@ def sub(request):
 def success(request):
     return render(request, "success.html")
 
-
-
-
 def backend(request):
     if request.method=="POST":
         u_id = request.POST.get('u_id','')
@@ -155,7 +153,8 @@ def backend(request):
         except:
             return render(request, 'erono1.html')
     else:
-        return HttpResponse('Unauthorised Access!')
+        messages.error(request,"Unauthorised Access!")
+        return redirect("/")
 
 def article(request):
     u_id = request.POST.get('U_id','')
@@ -221,25 +220,19 @@ def search(request):
     params={'allPosts': allPosts, 'query': query}
     return render(request, 'search.html', params)
 
-def login(request):
+def Login(request):
      if request.method=='POST':
         
         username=request.POST['Username']
         password=request.POST['psw']
-        users=['shresth','ayushman','aviral']
-        if username in users:
-            username = username.upper()
-            passw = os.getenv(username)
-            if passw==password:
-                return render (request,'backend.html')
-            else :
-                return render (request,'erono1.html')
 
+        user = authenticate(username=username,password=password)
+        if user is not None:
+            login(request,user)
+            messages.success(request,"Logged-In")
+            return render(request, "backend.html")
         else:
-            HttpResponse("user not found")
+            messages.error(request,"Log-In Failed!")
+            return redirect("/")
+        
      return render(request, 'adminlogin.html')
-
-
-
-
-
