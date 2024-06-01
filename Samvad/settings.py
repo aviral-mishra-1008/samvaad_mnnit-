@@ -80,25 +80,25 @@ try:
     l = connection_string.split(' ')
     parameters = dict()
 
+    for i in l:
+        stringNeeded = i.split('=')
+        parameters[stringNeeded[0]] = stringNeeded[1]
+
+    DATABASES = {  
+        'default':{
+            'ENGINE' : 'django.db.backends.postgresql',
+            'NAME' : parameters['dbname'],
+            'HOST' : parameters['host'],
+            'USER' : parameters['user'],
+            'PASSWORD' : parameters['password'],
+            'OPTIONS':{"sslmode":"require"},
+        }
+    }
+
 except:
     pass
 
-for i in l:
-    stringNeeded = i.split('=')
-    parameters[stringNeeded[0]] = stringNeeded[1]
 
-
-
-DATABASES = {  
-    'default':{
-        'ENGINE' : 'django.db.backends.postgresql',
-        'NAME' : parameters['dbname'],
-        'HOST' : parameters['host'],
-        'USER' : parameters['user'],
-        'PASSWORD' : parameters['password'],
-        'OPTIONS':{"sslmode":"require"},
-    }
-}
 
 
 # Password validation
