@@ -4,9 +4,8 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Submissions
 from .models import Contact
-from Vyas.models import Post
 import smtplib
-from Vyas.models import Post
+from .models import Post
 import random
 import os
 from django.contrib import  messages
@@ -24,15 +23,15 @@ def index(request):
         i.article = i.article[0:255]+"..."
 
 
-    li = [84016930,78433561,44168730,37687202,73495532,58111889]
-    objs = []
-    for i in li:
-        data = Post.objects.filter(unique_identifier = i)
-        data = data[0]
-        data.article = data.article[0:255]+"..."
-        objs.append(data)
+    # li = [84016930,78433561,44168730,37687202,73495532,58111889]
+    # objs = []
+    # for i in li:
+    #     data = Post.objects.filter(unique_identifier = i)
+    #     data = data[0]
+    #     data.article = data.article[0:255]+"..."
+    #     objs.append(data)
 
-    params = {'key':num,'no_of_arts':n, 'range':range(1,n), 'arts': arts, 'objs':objs}
+    params = {'key':num,'no_of_arts':n, 'range':range(1,n), 'arts': arts}
     return render(request, "indexNew.html",params)
 
 def about(request):
@@ -236,3 +235,19 @@ def Login(request):
             return redirect("/")
         
      return render(request, 'adminlogin.html')
+
+def first(request):
+    arts = Post.objects.all()
+    n = len(arts)
+    for i in arts:
+        i.article = i.article[0:255]+"...."
+    params={'no_of_arts':n, 'range':range(1,n), 'arts': arts}
+    return render(request, "firstpost.html", params)
+
+
+
+def allpost(request, slug):
+    try:
+        return render(request,f"Articles/{slug}.html")
+    except:
+        return render(request,"erono1.html")

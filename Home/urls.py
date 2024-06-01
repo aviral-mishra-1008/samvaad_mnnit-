@@ -13,6 +13,8 @@ urlpatterns = [
     path('Backend/',views.Login,name="backend"),
     path('Verification/',views.article,name="Article"),
     path('search/',views.search,name="search"),
-    path('backend_uid/', views.backend, name='backend')
+    path('backend_uid/', views.backend, name='backend'),
+    path("article/", views.first, name = "firstpost"),
+    path('article/<str:slug>/', views.allpost, name="allpost")
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

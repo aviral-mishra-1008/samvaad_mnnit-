@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Home.apps.HomeConfig',
-    'Vyas.apps.VyasConfig'
 ]
 
 MIDDLEWARE = [
