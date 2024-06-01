@@ -21,59 +21,33 @@
     <title>{% block title %} {% endblock %}</title>
   </head>
   <body>
-
-    {% for message in messages%}
-
-      {%if message.tags == 'success' %}
-        <div class="content-right px-2 py-2 border-2 border-green-400"> <p> {{message}} </p> </div>
-      {%endif%}
-      
-      {%if message.tags == 'error' %}
-        <div class="content-right px-2 py-2 border-2 border-red-400"> <p> {{message}} </p> </div>
-      {%endif%}
-
-    {%endfor%}
-
     <section class="wrapper w-screen mt-0 bg-orange-100 ">
       
       <div class="flex flex-col w-[100%] h-[100%] mt-0">
-        <nav
-          class="flex justify-between px-20 py-10 items-center bg-gradient-to-r from-red-500 to-red-700  h-[25px] w-[100%]"
-        >
-          <h1 class="text-2xl text-gray-200 font-bold"><a href="/"> SAMVAAD </a></h1>
+        <nav class="flex justify-between px-4 md:px-20 py-4 md:py-10 items-center bg-gradient-to-r from-red-500 to-red-700">
+          <h1 class="text-2xl text-gray-200 font-bold"><a href="/">SAMVAAD</a></h1>
           <div class="flex items-center">
-            <div class="flex items-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 pt-0.5 text-gray-600"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                />
-              </svg>
-              <form class="d-flex" method="POST" action="/search/">
-                {% csrf_token %}
-                <input class="form-control me-2 bg-transparent" type="search" placeholder="Search Articles..." name="search_query" required aria-label="Search">
-                <button class="btn btn-outline-success text-white ms-2" type="submit" style="padding: 20px;">Search</button>
-            </form>
             
+            <button id="hamburger-toggle" class="text-gray-600 hover:text-gray-800 focus:outline-none" aria-label="Toggle menu">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
+            
+            <div id="menu-overlay" class="fixed top-0 left-0 right-0 bottom-0 hidden bg-black bg-opacity-75 z-10">
+              <ul id="mobile-menu" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center space-y-6 font-semibold text-gray-200 text-xl">
+                <li><a href="/">Home</a></li>
+                <li><a href="/About">About</a></li>
+                <li><a href="/Contact">Contact</a></li>
+                <li><a href="/article">Articles</a></li>
+                <li><a href="/Submission">Submission</a></li>
+              </ul>
             </div>
-            <ul class="flex items-center space-x-6">
-              <li class="font-semibold text-gray-200"> <a href='/'>Home</a></li>
-              <li class="font-semibold text-gray-200"><a href='/About'>About</a></li>
-              <li class="font-semibold text-gray-200"><a href='/Contact'>Contact</a></li>
-              <li class="font-semibold text-gray-200"><a href='/article'>Articles</a></li>
-              <li class="font-semibold text-gray-200"><a href='/Submission'>Submission</a></li>
-              </li>
-            </ul>
           </div>
         </nav>
+        
+        
+        
         {% block body %}
         
         {% endblock %}  
@@ -194,5 +168,17 @@
         </div>
       </div>
     </section>
+        
+
+    <script>
+      const hamburger = document.getElementById('hamburger-toggle');
+      const menuOverlay = document.getElementById('menu-overlay');
+      
+      hamburger.addEventListener('click', () => {
+        menuOverlay.classList.toggle('hidden');
+      });
+      
+      </script>
+
   </body>
 </html>
