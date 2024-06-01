@@ -6,4 +6,3 @@ tzdata
 psycopg2
 python-dotenv
 whitenoise
-smtplib
