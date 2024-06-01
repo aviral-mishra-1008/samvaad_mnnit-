@@ -23,13 +23,13 @@ def index(request):
         i.article = i.article[0:255]+"..."
 
 
-    # li = [84016930,78433561,44168730,37687202,73495532,58111889]
-    # objs = []
-    # for i in li:
-    #     data = Post.objects.filter(unique_identifier = i)
-    #     data = data[0]
-    #     data.article = data.article[0:255]+"..."
-    #     objs.append(data)
+    li = [84016930,78433561,44168730,37687202,73495532,58111889]
+    objs = []
+    for i in li:
+        data = Post.objects.filter(unique_identifier = i)
+        data = data[0]
+        data.article = data.article[0:255]+"..."
+        objs.append(data)
 
     params = {'key':num,'no_of_arts':n, 'range':range(1,n), 'arts': arts}
     return render(request, "indexNew.html",params)
