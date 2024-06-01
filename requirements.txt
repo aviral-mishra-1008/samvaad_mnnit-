@@ -1,8 +1,5 @@
 ﻿Django
 sqlparse
-asgiref
-backports.zoneinfo
-tzdata
 psycopg2
 python-dotenv
 whitenoise
