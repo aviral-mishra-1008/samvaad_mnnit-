@@ -96,6 +96,7 @@ try:
     }
 
 except:
+    print("error")
     pass
 
 
