@@ -16,3 +16,6 @@ setting_module = 'Samvad.deployment' if 'WEBSITE_HOSTNAME' in os.environ else 'S
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', setting_module)
 
 application = get_wsgi_application()
+
+def printName():
+    print(setting_module)
