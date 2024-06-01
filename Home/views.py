@@ -31,7 +31,7 @@ def index(request):
         data.article = data.article[0:255]+"..."
         objs.append(data)
 
-    params = {'key':num,'no_of_arts':n, 'range':range(1,n), 'arts': arts}
+    params = {'key':num,'no_of_arts':n, 'range':range(1,n), 'arts': arts, 'objs':objs}
     return render(request, "indexNew.html",params)
 
 def about(request):
