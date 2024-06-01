@@ -74,9 +74,14 @@ WSGI_APPLICATION = 'Samvad.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-connection_string = os.environ['AZURE_POSTGRESQL_CONNECTIONSTRING']
-l = connection_string.split(' ')
-parameters = dict()
+
+try:
+    connection_string = os.environ['AZURE_POSTGRESQL_CONNECTIONSTRING']
+    l = connection_string.split(' ')
+    parameters = dict()
+
+except:
+    pass
 
 for i in l:
     stringNeeded = i.split('=')
