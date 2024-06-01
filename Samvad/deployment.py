@@ -40,4 +40,9 @@ DATABASES = {
     }
 }
 
+def printNames():
+    print(parameters['dbname'])
+    print(parameters['host'])
+    print(parameters['user'])
+    print(parameters['password'])
 
