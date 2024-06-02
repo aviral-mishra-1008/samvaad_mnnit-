@@ -44,13 +44,12 @@ def contact_us(request):
         phone = request.POST.get('phone','')
         query = request.POST.get('query','')
         image = request.FILES.get('image',)
-        print(image)
         date = datetime.strptime(date, '%Y-%m-%d').date()
         contact=Contact(date=date,email=email,phone=phone,query=query,image=image)
         contact.save()
         messages.success(request, 'Your message was sent successfully!')
         load_dotenv()
-        password = os.getenv("ADMIN_PASS") #Always use double inverted commas
+        password = os.environ['ADMIN_PASS'] #Always use double inverted commas
         server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
         server.starttls
         server.login("glasnost.mnnit@gmail.com", password)
