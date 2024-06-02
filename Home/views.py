@@ -78,7 +78,7 @@ def sub(request):
         unique_id = random.randrange(0,99999)
 
         load_dotenv()
-        password = os.getenv("ADMIN_PASS") #Always use double inverted commas
+        password = os.environ['ADMIN_PASS'] #Always use double inverted commas
         server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
         server.starttls
         server.login("glasnost.mnnit@gmail.com", password)
