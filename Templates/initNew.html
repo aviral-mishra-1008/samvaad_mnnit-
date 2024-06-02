@@ -21,6 +21,18 @@
     <title>{% block title %} {% endblock %}</title>
   </head>
   <body>
+
+    
+        {%comment%} FOR DISPLAYING MESSAGES{%endcomment%}
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    
     <section class="wrapper w-screen mt-0 bg-orange-100 ">
       
       <div class="flex flex-col w-[100%] h-[100%] mt-0">
