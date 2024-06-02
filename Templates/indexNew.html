@@ -61,10 +61,22 @@
 
 
 
+        {%comment%} FOR DISPLAYING MESSAGES{%endcomment%}
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+
+
 
 <div class="grid"> 
 
   {%for i in objs%}
+
   <a href={{i.slug}}>
   <div
             class=" h-[300px] w-full  bg-red-400 cursor-pointer rounded-lg relative group"
@@ -112,6 +124,7 @@
 				<img role="presentation" class="object-cover w-full rounded h-44 dark:bg-gray-500" src="/media/{{i.image}}" />
 				<div class="p-6 space-y-2">
 					<h3 class="text-2xl font-semibold group-hover:underline group-focus:underline">{{i.heading}}</h3>
+					<p> {{i.name}} | {{i.branch}} </p>
 					<span class="text-xs dark:text-gray-600">Estimated Time of Reading: {{i.estimated_time}} </span>
 					<p> {{i.article}}</p>
 				</div>
