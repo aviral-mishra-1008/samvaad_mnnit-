@@ -66,14 +66,13 @@ def sub(request):
     if request.method=="POST":
         name = request.POST.get('name','')
         email_id = request.POST.get('email','')
-        phone_no = request.POST.get('phone_no',)
         heading = request.POST.get('heading','')
         article = request.POST.get('article','')
         branch = request.POST.get('branch','')
         insta = request.POST.get('ig', '')
-        reg_no = request.POST.get('reg',)
+        reg_no = request.POST.get('reg','')
         year = request.POST.get('year',)
-        estimated_time = request.POST.get('time',)
+        estimated_time = request.POST.get('time','')
         image = request.FILES.get('image',)
         unique_id = random.randrange(0,99999)
 
@@ -104,7 +103,7 @@ def sub(request):
             
 
 
-        submission = Submissions(name=name, email_id=email_id, phone_no=phone_no, heading=heading, article=article, insta=insta, reg_no=reg_no, branch=branch, year=year,estimated_time=estimated_time, image=image, unique_id=unique_id )
+        submission = Submissions(name=name, email_id=email_id, heading=heading, article=article, insta=insta, reg_no=reg_no, branch=branch, year=year,estimated_time=estimated_time, image=image, unique_id=unique_id )
         submission.save()
        
         subject1 = "[Article Submission Successful!]"

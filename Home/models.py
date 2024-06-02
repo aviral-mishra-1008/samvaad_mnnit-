@@ -15,7 +15,6 @@ class Submissions(models.Model):
     reg_no = models.BigIntegerField(default=0, null=True)
     branch = models.CharField(max_length = 100, default="")
     year = models.IntegerField(default=0, null=True)
-    phone_no = models.BigIntegerField(default=0, null = True)
 
     def __str__(self):
         return self.name
