@@ -77,7 +77,6 @@ def sub(request):
         image = request.FILES.get('image',)
         unique_id = random.randrange(0,99999)
 
-        load_dotenv()
         password = os.environ['ADMIN_PASS'] #Always use double inverted commas
         server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
         server.starttls
