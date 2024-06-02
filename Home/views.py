@@ -75,7 +75,7 @@ def sub(request):
         year = request.POST.get('year',)
         estimated_time = request.POST.get('time',)
         image = request.FILES.get('image',)
-        unique_id = random.randrange(1000000,99999999)
+        unique_id = random.randrange(0,99999)
 
         load_dotenv()
         password = os.getenv("ADMIN_PASS") #Always use double inverted commas
