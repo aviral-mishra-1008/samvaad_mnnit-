@@ -21,6 +21,11 @@ def index(request):
     arts = arts[:n]
     for i in arts:
         i.article = i.article[0:255]+"..."
+        img = str(i.image)
+        imgUrl = "/media/"+img[0:len(img)-12]+img[len(img)-4:len(img)]
+        data.image = imgUrl
+
+
 
 
     li = [84016930,78433561,44168730,37687202,73495532,58111889]
@@ -29,6 +34,9 @@ def index(request):
         data = Post.objects.filter(unique_identifier = i)
         data = data[0]
         data.article = data.article[0:255]+"..."
+        img = str(data.image)
+        imgUrl = "/media/"+img[0:len(img)-12]+img[len(img)-4:len(img)]
+        data.image = imgUrl
         objs.append(data)
 
     params = {'key':num,'no_of_arts':n, 'range':range(1,n), 'arts': arts, 'objs':objs}
@@ -137,8 +145,9 @@ def backend(request):
             heading = iD.heading
             time = iD.estimated_time
             year = iD.year
-            image = iD.image
-            image = "\media\\"+str(image)                
+            img = str(iD.image)
+            imgUrl = "/media/"+img[0:len(img)-12]+img[len(img)-4:len(img)]
+            image = imgUrl
 
             l.extend([name,email,article,branch,heading,time,year,u_id,image])
             for i in range(9):
@@ -211,7 +220,9 @@ def search(request):
         allPostsContent =Post.objects.filter(article__icontains=query)
         allPosts=  allPostsTitle.union(allPostsContent, allPostsAuthor)
         for post in allPosts:
-            post.image = '/media/'+str(post.image)
+            img = str(post.image)
+            imgUrl = "/media/"+img[0:len(img)-12]+img[len(img)-4:len(img)]
+            post.image = imgUrl
        
     params={'allPosts': allPosts, 'query': query}
     return render(request, 'search.html', params)
@@ -238,6 +249,9 @@ def first(request):
     n = len(arts)
     for i in arts:
         i.article = i.article[0:255]+"...."
+        img = str(i.image)
+        imgUrl = "/media/"+img[0:len(img)-12]+img[len(img)-4:len(img)]
+        i.image = imgUrl
     params={'no_of_arts':n, 'range':range(1,n), 'arts': arts}
     return render(request, "firstpost.html", params)
 
