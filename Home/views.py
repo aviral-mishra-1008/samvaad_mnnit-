@@ -23,7 +23,7 @@ def index(request):
         i.article = i.article[0:255]+"..."
         img = str(i.image)
         imgUrl = "/media/"+img[0:len(img)-12]+img[len(img)-4:len(img)]
-        data.image = imgUrl
+        i.image = imgUrl
 
 
 
