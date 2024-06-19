@@ -42,7 +42,7 @@ background: linear-gradient(90deg, rgba(0,0,0,0.36074940229998254) 0%, rgba(41,1
             <strong class="d-inline-block mb-2 text-primary">Article  by {{post.name}}</strong>
             <h3 class="mb-0">{{post.heading}}</h3>
             <div class="mb-1 text-muted"> Estimated Time:{{post.estimated_time}}</div>
-            <p class="card-text mb-auto">{{post.article| truncatechars:250}}</p>
+            <p class="card-text mb-auto">{{post.article| truncatechars:255}}</p>
             <div class="my-2">
             	<a href="/{{post.slug}}" role="button" class="px-1 py-1 border-2 border-dotted border-yellow-400 rounded-md hover:bg-yellow-400">Continue reading</a>
             </div>
