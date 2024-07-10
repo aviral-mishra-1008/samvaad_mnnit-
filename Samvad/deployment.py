@@ -19,6 +19,18 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+STORAGES = {
+    # ...
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+
+
 connection_string = os.environ['AZURE_POSTGRESQL_CONNECTIONSTRING']
 l = connection_string.split(' ')
 parameters = dict()
@@ -39,7 +51,9 @@ DATABASES = {
 }
 
 STATIC_URL = "staticfiles/"
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+
+
 
 
 
