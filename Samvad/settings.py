@@ -73,30 +73,12 @@ WSGI_APPLICATION = 'Samvad.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-
-try:
-    connection_string = os.environ['AZURE_POSTGRESQL_CONNECTIONSTRING']
-    l = connection_string.split(' ')
-    parameters = dict()
-
-    for i in l:
-        stringNeeded = i.split('=')
-        parameters[stringNeeded[0]] = stringNeeded[1]
-
-    DATABASES = {  
-        'default':{
-            'ENGINE' : 'django.db.backends.postgresql',
-            'NAME' : parameters['dbname'],
-            'HOST' : parameters['host'],
-            'USER' : parameters['user'],
-            'PASSWORD' : parameters['password'],
-            'OPTIONS':{"sslmode":"require"},
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
-
-except:
-    print("error")
-    pass
+}
 
 
 
@@ -134,8 +116,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
-STATIC_URL = "staticfiles/"
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 
 

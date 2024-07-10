@@ -38,6 +38,9 @@ DATABASES = {
     }
 }
 
+STATIC_URL = "staticfiles/"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 
 
 
